@@ -8,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   constructor() { }
-
+  user:{username:string,password:string} = {
+    username:'',
+    password:''
+  }
   ngOnInit(): void {
   }
 

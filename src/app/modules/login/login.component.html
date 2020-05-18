@@ -1,3 +1,26 @@
-<div class="jr-full-size jr-login-background">
-    <mat-card>Simple card</mat-card>
+<div class="jr-full-size jr-login-background" style="position:relative">
+    <mat-card class="jr-login-card jr-layout-column jr-strech">
+            <mat-toolbar color="primary">Login</mat-toolbar> 
+            <mat-card-content style="flex:1">
+                <form style="padding: 50px;" class="jr-layout-column">
+                    <mat-form-field>
+                      <mat-label>User Name</mat-label>
+                      <input matInput required [(ngModel)]="user.username" name="username"  #username="ngModel">
+                      <mat-error *ngIf="username.invalid || username.pristine">Requied</mat-error>
+                    </mat-form-field>
+                  
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" required [(ngModel)]="user.password" name="password"  #password="ngModel">
+                        <mat-error *ngIf="password.invalid || password.pristine">Requied</mat-error>
+                    </mat-form-field>
+
+                    <div style="margin: auto;">
+                        <button mat-fab  aria-label="submit button">
+                            <mat-icon>arrow_forward</mat-icon>
+                        </button>
+                    </div>
+                  </form>
+            </mat-card-content>
+    </mat-card>
 </div>
