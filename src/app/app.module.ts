@@ -8,18 +8,22 @@ import{FormsModule} from '@angular/forms';
 import{MaterialModule } from '@shared/material';
 
 import { LoginComponent } from './modules/login/login.component';
+import { MainComponent } from './modules/main/main.component';
+import {CoreModule} from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
     JrRouterModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
