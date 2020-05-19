@@ -5,7 +5,7 @@ import { JrRouterModule } from './router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{FormsModule} from '@angular/forms';
-import{MaterialModule } from './shared/material';
+import{MaterialModule } from '@shared/material';
 
 import { LoginComponent } from './modules/login/login.component';
 
