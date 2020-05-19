@@ -10,12 +10,14 @@ import{MaterialModule } from '@shared/material';
 import { LoginComponent } from './modules/login/login.component';
 import { MainComponent } from './modules/main/main.component';
 import {CoreModule} from './core/core.module';
+import { JobreportComponent } from './modules/jobreport/jobreport.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    JobreportComponent
   ],
   imports: [
     BrowserModule,

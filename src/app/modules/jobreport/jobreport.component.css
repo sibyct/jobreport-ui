@@ -1,0 +1,18 @@
+.jr-spacebetween{
+    justify-content: space-between;
+}
+
+.jr-container-sizing{
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.jr-filter-form mat-form-field{
+    margin-left: 10px;
+}
+
+.jr-result-table-header{
+    height: 50px;
+    background-color: #1976d2;
+    width: 100%;
+}
