@@ -1,13 +1,7 @@
 .jr-spacebetween{
     justify-content: space-between;
 }
-
-.jr-container-sizing{
-    box-sizing: border-box;
-    padding: 20px;
-}
-
-.jr-filter-form mat-form-field,button{
+.jr-filter-form mat-form-field,button, mat-checkbox{
     margin-left: 10px;
 }
 
@@ -15,4 +9,8 @@
     height: 50px;
     background-color: #1976d2;
     width: 100%;
+}
+
+.jr-align-horizondal .mat-checkbox-layout{
+    margin-top: 20% !important;
 }

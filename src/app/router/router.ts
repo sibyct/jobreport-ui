@@ -2,6 +2,7 @@ import {  Routes } from '@angular/router';
 import {LoginComponent} from '../modules/login';
 import{ MainComponent} from '../modules/main';
 import {JobreportComponent} from '../modules/jobreport';
+import {CreatereportComponent} from '../modules/createreport';
 
 export const ROUTES:Routes = [{
     component: LoginComponent,
@@ -12,6 +13,9 @@ export const ROUTES:Routes = [{
     children:[{
         component: JobreportComponent,
         path:'jobreport'
+    },{
+        component: CreatereportComponent,
+        path:'createreport'
     }]
 },{ 
     path: '', 

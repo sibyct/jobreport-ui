@@ -32,8 +32,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
 import {MatTreeModule} from '@angular/material/tree';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -71,7 +71,8 @@ import {MatTreeModule} from '@angular/material/tree';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatTreeModule
+    MatTreeModule,
+    MatNativeDateModule
   ],
   exports:[
     BrowserAnimationsModule,
@@ -106,7 +107,8 @@ import {MatTreeModule} from '@angular/material/tree';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatTreeModule
+    MatTreeModule,
+    MatNativeDateModule
   ]
 })
 export class MaterialModule { }

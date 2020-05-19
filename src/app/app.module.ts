@@ -11,13 +11,15 @@ import { LoginComponent } from './modules/login/login.component';
 import { MainComponent } from './modules/main/main.component';
 import {CoreModule} from './core/core.module';
 import { JobreportComponent } from './modules/jobreport/jobreport.component';
+import { CreatereportComponent } from './modules/createreport/createreport.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainComponent,
-    JobreportComponent
+    JobreportComponent,
+    CreatereportComponent
   ],
   imports: [
     BrowserModule,
