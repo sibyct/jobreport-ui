@@ -3,27 +3,30 @@
         <form class="jr-filter-form jr-layout-row">
             <mat-form-field style="flex:1">
               <mat-label>Search</mat-label>
-              <input matInput placeholder="Ex. Pizza" value="Sushi">
+              <input matInput  value="Sushi">
             </mat-form-field>
           
             <mat-form-field style="flex:1">
               <mat-label>Leave a comment</mat-label>
-              <input matInput placeholder="Ex. It makes me feel..."/>
+              <input matInput/>
             </mat-form-field>
 
-          <mat-form-field style="flex:1">
-            <mat-label>Leave a comment</mat-label>
-            <input matInput placeholder="Ex. It makes me feel..."/>
-          </mat-form-field>
+            <mat-form-field style="flex:1">
+                <mat-label>Leave a comment</mat-label>
+                <input matInput />
+            </mat-form-field>
 
-        <mat-form-field style="flex:1">
-            <mat-label>Leave a comment</mat-label>
-            <input matInput placeholder="Ex. It makes me feel..."/>
-          </mat-form-field>
+            <mat-form-field style="flex:1">
+                <mat-label>Leave a comment</mat-label>
+                <input matInput/>
+            </mat-form-field>
+            <button mat-mini-fab color="primary" aria-label="search">
+                <mat-icon>search</mat-icon>
+              </button>
         </form>
     </mat-card>
     <div style="margin-top:30px;flex:1;position: relative;">
-        <button mat-fab color="primary" aria-label="add a new report" style="position: absolute;right:30px;top:-20px">
+        <button mat-fab color="accent" aria-label="add a new report" style="position: absolute;right:30px;top:-20px">
             <mat-icon>add</mat-icon>
           </button>
         <div class="jr-result-table-header"></div>

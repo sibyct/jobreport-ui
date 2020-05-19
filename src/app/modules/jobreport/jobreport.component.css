@@ -7,7 +7,7 @@
     padding: 20px;
 }
 
-.jr-filter-form mat-form-field{
+.jr-filter-form mat-form-field,button{
     margin-left: 10px;
 }
 
