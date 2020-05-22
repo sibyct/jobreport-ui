@@ -2,7 +2,7 @@
     <mat-card class="jr-login-card jr-layout-column jr-strech">
             <mat-toolbar color="primary">Login</mat-toolbar> 
             <mat-card-content style="flex:1">
-                <form style="padding: 50px;" class="jr-layout-column">
+                <form style="padding: 50px;" class="jr-layout-column" (ngSubmit)="submitLoginForm()">
                     <mat-form-field>
                       <mat-label>User Name</mat-label>
                       <input matInput required [(ngModel)]="user.username"
@@ -17,7 +17,7 @@
                     </mat-form-field>
 
                     <div style="margin: auto;">
-                        <button mat-fab  aria-label="submit button" routerLink="/main/jobreport">
+                        <button mat-fab  aria-label="submit button" type="submit">
                             <mat-icon>arrow_forward</mat-icon>
                         </button>
                     </div>

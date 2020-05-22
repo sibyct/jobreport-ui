@@ -5,6 +5,8 @@ import { JrRouterModule } from './router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{FormsModule} from '@angular/forms';
+import { HttpClientModule }    from '@angular/common/http';
+
 import{MaterialModule } from '@shared/material';
 
 import { LoginComponent } from './modules/login/login.component';
@@ -27,7 +29,8 @@ import { CreatereportComponent } from './modules/createreport/createreport.compo
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    CoreModule
+    CoreModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
