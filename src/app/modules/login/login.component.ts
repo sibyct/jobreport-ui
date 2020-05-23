@@ -12,6 +12,17 @@ export class LoginComponent implements OnInit {
     username:'',
     password:''
   }
+  formConfig = {
+    name:'dynamic form',
+    items:[{
+      type:'text',
+      label:'dsdsds'
+    },{
+      type:'date'
+    },{
+      type:'autocomplete'
+    }]
+  }
   ngOnInit(): void {
   }
   submitLoginForm(){

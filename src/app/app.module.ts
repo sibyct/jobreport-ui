@@ -15,6 +15,7 @@ import {CoreModule} from './core/core.module';
 import { JobreportComponent } from './modules/jobreport/jobreport.component';
 import { CreatereportComponent } from './modules/createreport/createreport.component';
 
+import {SharedcomponentsModule} from '@shared/components/sharedcomponents.module'
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { CreatereportComponent } from './modules/createreport/createreport.compo
     MaterialModule,
     FormsModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedcomponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
