@@ -3,28 +3,29 @@ export const formConfig = {
   layout:'column',
   items:[{
     type:'text',
-    label:'dsdsds',
-    model:'sddd'
+    label:'Name',
+    model:'name'
   },{
-    type:'date',
-    name:'siby',
-    label:'dsdsds',
+    type:'text',
+    label:'Mobile Number',
+    model:'mobileNumber'
   },{
-    type:'container',
-    layout:'row',
-    items:[{
-      type:'text',
-      label:'dsdsds',
-      model:'sddd'
-    },{
-      type:'date',
-      name:'siby',
-      label:'dsdsds',
-    },{
-      type:'number',
-      label:'dsdsds',
-      model:'sddd'
-    }]
+    type:'text',
+    label:'Address',
+    model:'address'
+  },{
+    type:'text',
+    label:'Route',
+    model:'route'
+  },{
+    type:'text',
+    label:'Location',
+    model:'location'
+  },
+  {
+    type:'text',
+    label:'Complaint',
+    model:'complaint'
   }]
 }
 
