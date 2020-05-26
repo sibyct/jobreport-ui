@@ -30,9 +30,20 @@ const ELEMENT_DATA: PeriodicElement[] = [
   }
 })
 export class JobreportComponent implements OnInit {
-
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  columns = [{
+    label:'position',
+    dataIndex:'position'
+  },{
+    label:'name',
+    dataIndex:'name'
+  },{
+    label:'weight',
+    dataIndex:'weight'
+  },{
+    label:'symbol',
+    dataIndex:'symbol'
+  }];
+  data = ELEMENT_DATA;
   constructor() { }
 
   ngOnInit(): void {

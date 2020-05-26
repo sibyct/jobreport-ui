@@ -9,6 +9,7 @@ import {TextComponent} from './text';
 import {DatepickerComponent} from './datepicker';
 import {AutocompleteComponent} from './autocomplete';
 import { RadioComponent } from './radio';
+import { ReadonlytableComponent } from './readonlytable/readonlytable.component';
 
 @NgModule({
   declarations: [
@@ -16,14 +17,16 @@ import { RadioComponent } from './radio';
     AutocompleteComponent,
     TextComponent,
     DatepickerComponent,
-    RadioComponent
+    RadioComponent,
+    ReadonlytableComponent
   ],
   exports:[
     FormComponent,
     AutocompleteComponent,
     TextComponent,
     DatepickerComponent,
-    RadioComponent
+    RadioComponent,
+    ReadonlytableComponent
   ],
   imports: [
     CommonModule,
