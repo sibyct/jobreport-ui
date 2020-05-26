@@ -7,21 +7,21 @@
 
 <!-- Text Component -->
 <ng-template  #textField let-config let-data="data">
-    <jr-text [(ngModel)]="data[config.model]"></jr-text>
+    <jr-text [(ngModel)]="data[config.model]" [label]="config.label"></jr-text>
 </ng-template >
 
 <!-- DateCompoent -->
 <ng-template  #dateField let-config let-data="data">
-    <jr-datepicker [(ngModel)]="data[config.model]"></jr-datepicker>
+    <jr-datepicker [(ngModel)]="data[config.model]" [label]="config.label"></jr-datepicker>
 </ng-template >
 <!-- Autocomplete Compoent -->
 <ng-template  #autocompleteField let-config let-data="data">
-    <jr-autocomplete [(ngModel)]="data[config.model]"></jr-autocomplete>
+    <jr-autocomplete [(ngModel)]="data[config.model]" [label]="config.label"></jr-autocomplete>
 </ng-template >
 
 <!-- Number Compoent -->
 <ng-template #numberField let-config let-data="data">
-    <jr-text [(ngModel)]="data[config.model]"></jr-text>
+    <jr-text [(ngModel)]="data[config.model]" [label]="config.label"></jr-text>
 </ng-template>
 
 <!-- Checkbox Compoent -->
@@ -31,11 +31,7 @@
 
 <!-- Radio Group -->
 <ng-template #radio let-config let-data="data">
-    <label class="example-margin">{{config.label}}</label>
-    <mat-radio-group [(ngModel)]="data[config.model]">
-        <mat-radio-button  value="after">After</mat-radio-button>
-        <mat-radio-button  value="before">Before</mat-radio-button>
-    </mat-radio-group>
+    <jr-radio  [(ngModel)]="data[config.model]"></jr-radio>
 </ng-template>
 
 <!-- container -->

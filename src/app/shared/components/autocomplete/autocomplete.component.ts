@@ -1,10 +1,14 @@
-import { Component, OnInit, Input, forwardRef} from '@angular/core';
+import { Component, OnInit, Input, forwardRef, OnDestroy} from '@angular/core';
 
 import {IDyamicComponentConfig} from '../../types/formtypes';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
+import {ComponentmanagerService} from '../../services/componentmanager';
+
 const noop = () => {
 };
+
+let nextUniqueId = 0;
 
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
     provide: NG_VALUE_ACCESSOR,
@@ -18,11 +22,13 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   styleUrls: ['./autocomplete.component.css'],
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
-export class AutocompleteComponent implements ControlValueAccessor {
+export class AutocompleteComponent implements OnInit,OnDestroy,ControlValueAccessor {
   options = [];
 
   @Input() label:string = '';
   
+  @Input() id:string = `jr-autocomplete-${nextUniqueId++}`;
+
   private innerValue: any = '';
 
   //Placeholders for the callbacks which are later provided
@@ -43,6 +49,11 @@ export class AutocompleteComponent implements ControlValueAccessor {
       }
   }
 
+  constructor(private componentManager: ComponentmanagerService){}
+
+  ngOnInit(){
+    this.componentManager.setComponent(this.id,this);
+  }
   //Set touched on blur
   onBlur() {
       this.onTouchedCallback();
@@ -63,6 +74,9 @@ export class AutocompleteComponent implements ControlValueAccessor {
   //From ControlValueAccessor interface
   registerOnTouched(fn: any) {
       this.onTouchedCallback = fn;
+  }
+  ngOnDestroy(){
+    this.componentManager.removeCompoent(this.id);
   }
 
 }

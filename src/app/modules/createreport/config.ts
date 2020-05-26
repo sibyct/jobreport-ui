@@ -1,6 +1,6 @@
 export const formConfig = {
   name:'dynamic form',
-  layout:'row',
+  layout:'column',
   items:[{
     type:'text',
     label:'dsdsds',
@@ -11,6 +11,7 @@ export const formConfig = {
     label:'dsdsds',
   },{
     type:'container',
+    layout:'row',
     items:[{
       type:'text',
       label:'dsdsds',

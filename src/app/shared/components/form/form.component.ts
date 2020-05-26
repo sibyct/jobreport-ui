@@ -20,9 +20,16 @@ import {IDyamicComponentConfig,IDyamicformConfig} from '../../types/formtypes';
   changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class FormComponent {
-
+  _formData:any = {};
   @Input('formConfig') formConfig : IDyamicformConfig;
 
+  @Input ('data')
+  set formData(data){
+    this._formData = data;
+  }
+  get formData(){
+    return this._formData;
+  }
   @ViewChild('textField',{static:true}) textField;
 
   @ViewChild('dateField',{static:true}) dateField;
@@ -38,7 +45,7 @@ export class FormComponent {
   @ViewChild('container',{static:true}) container;
 
   layout: string;
-  
+
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   getComponentType(type:string) :any{

@@ -15,7 +15,7 @@ import {CoreModule} from './core/core.module';
 import { JobreportComponent } from './modules/jobreport/jobreport.component';
 import { CreatereportComponent } from './modules/createreport/createreport.component';
 
-import {SharedcomponentsModule} from '@shared/components/sharedcomponents.module'
+import {SharedModule} from '@shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +32,7 @@ import {SharedcomponentsModule} from '@shared/components/sharedcomponents.module
     FormsModule,
     CoreModule,
     HttpClientModule,
-    SharedcomponentsModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

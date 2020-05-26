@@ -8,19 +8,22 @@ import {MaterialModule} from '../material';
 import {TextComponent} from './text';
 import {DatepickerComponent} from './datepicker';
 import {AutocompleteComponent} from './autocomplete';
+import { RadioComponent } from './radio';
 
 @NgModule({
   declarations: [
     FormComponent,
     AutocompleteComponent,
     TextComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    RadioComponent
   ],
   exports:[
     FormComponent,
     AutocompleteComponent,
     TextComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    RadioComponent
   ],
   imports: [
     CommonModule,
