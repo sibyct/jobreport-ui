@@ -6,61 +6,71 @@ import {
   AfterViewInit,
   ComponentFactoryResolver,
   ComponentFactory,
-  Input
+  Input,
+  ChangeDetectionStrategy
 } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-
-  import {TextComponent,DatepickerComponent,AutocompleteComponent} from '../index';
-  import {IDyamicComponentConfig,IDyamicformConfig} from '../../types/formtypes'; 
+import{MatCheckbox} from '@angular/material/checkbox';
+import{MatRadioGroup} from '@angular/material/radio';
+import {IDyamicComponentConfig,IDyamicformConfig} from '../../types/formtypes'; 
   
 @Component({
   selector: 'jr-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.css'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
+
+  @Input('formConfig') formConfig : IDyamicformConfig;
+
+  @ViewChild('textField',{static:true}) textField;
+
+  @ViewChild('dateField',{static:true}) dateField;
+
+  @ViewChild('autocompleteField',{static:true}) autocompleteField;
+
+  @ViewChild('numberField',{static:true}) numberField;
+
+  @ViewChild('checkbox',{static:true}) checkbox:MatCheckbox;
+
+  @ViewChild('radio',{static:true}) radio:MatRadioGroup;
+
+  @ViewChild('container',{static:true}) container;
+
+  layout: string;
   
-  dynamicFormGroup: FormGroup;
-
-  @Input() config : IDyamicformConfig;
- 
-  @ViewChild("dynamicFormRef", {read: ViewContainerRef,static:true}) formcontainerRef: ViewContainerRef;
-
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
-  ngOnInit(): void {
-    this.loadComponent()
-  }
-  loadComponent(){
-    this.formcontainerRef.clear();
-    if(this.config.items.length>0){
-      const dynamicForControlObj = {};
-      this.config.items.forEach((item)=>{
-        const formCOntrol = new FormControl('');
-        const dynamicFormControl = dynamicForControlObj[item.name] = formCOntrol;
-        const componentType = this.getComponentType(item);
-        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentType);
-        const componentRef = this.formcontainerRef.createComponent(componentFactory) as any;
-        componentRef.instance.config = item;
-      })
-      this.dynamicFormGroup = new FormGroup(dynamicForControlObj);
-    }
+  getComponentType(type:string) :any{
 
-  }
-  getComponentType(componentConfig: IDyamicComponentConfig) :any{
-
-    switch(componentConfig.type){
+    switch(type){
       case 'text':{
-        return TextComponent
+        return this.textField;
       }
       case 'date':{
-        return DatepickerComponent
+        return this.dateField
       }
       case 'autocomplete':{
-        return AutocompleteComponent
+        return this.autocompleteField
       }
+      case 'container':{
+        return this.container
+      }
+      case 'checkbox':{
+        return this.checkbox
+      }
+      case 'radio':{
+        return this.radio
+      }
+      
     }
 
+  }
+  getLayout(config:IDyamicComponentConfig | IDyamicformConfig) :string{
+    return config.layout || 'column';
+  }
+  getLayoutGap(config:IDyamicComponentConfig | IDyamicformConfig) :string{
+    return config.layout == 'row'?'15px':'0px';
   }
 
 }

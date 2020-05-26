@@ -1,35 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {AutocompleteComponent} from './autocomplete';
-import {TextComponent} from './text';
-import {FormComponent} from './form';
-import {DatepickerComponent} from './datepicker';
-import {MaterialModule} from '../material';
+import{FormsModule} from '@angular/forms';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormComponent} from './form';
+import {MaterialModule} from '../material';
+import {TextComponent} from './text';
+import {DatepickerComponent} from './datepicker';
+import {AutocompleteComponent} from './autocomplete';
 
 @NgModule({
   declarations: [
+    FormComponent,
     AutocompleteComponent,
     TextComponent,
-    FormComponent,
     DatepickerComponent
   ],
   exports:[
-    AutocompleteComponent,
-    TextComponent,
     FormComponent,
-    DatepickerComponent
-  ],
-  entryComponents:[
     AutocompleteComponent,
     TextComponent,
     DatepickerComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     MaterialModule,
-    ReactiveFormsModule
+    FlexLayoutModule
   ]
 })
 export class SharedcomponentsModule { }

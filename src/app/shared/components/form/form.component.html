@@ -1,3 +1,49 @@
-<form class="jr-layout-column" [formGroup]="dynamicFormGroup">
-    <ng-container  #dynamicFormRef></ng-container >
+<form class="jr-layout-column" [fxLayout]="getLayout(formConfig)" [fxLayoutGap]="getLayoutGap(formConfig)">
+    <ng-container *ngFor="let config of formConfig?.items">
+        <ng-container  [ngTemplateOutlet]="getComponentType(config.type)"
+        [ngTemplateOutletContext]="{$implicit: config , data:{}}"></ng-container>
+    </ng-container>
 </form>
+
+<!-- Text Component -->
+<ng-template  #textField let-config let-data="data">
+    <jr-text [(ngModel)]="data[config.model]"></jr-text>
+</ng-template >
+
+<!-- DateCompoent -->
+<ng-template  #dateField let-config let-data="data">
+    <jr-datepicker [(ngModel)]="data[config.model]"></jr-datepicker>
+</ng-template >
+<!-- Autocomplete Compoent -->
+<ng-template  #autocompleteField let-config let-data="data">
+    <jr-autocomplete [(ngModel)]="data[config.model]"></jr-autocomplete>
+</ng-template >
+
+<!-- Number Compoent -->
+<ng-template #numberField let-config let-data="data">
+    <jr-text [(ngModel)]="data[config.model]"></jr-text>
+</ng-template>
+
+<!-- Checkbox Compoent -->
+<ng-template #checkbox let-config let-data="data">
+    <mat-checkbox  [(ngModel)]="data[config.model]">{{config.label}}</mat-checkbox>
+</ng-template>
+
+<!-- Radio Group -->
+<ng-template #radio let-config let-data="data">
+    <label class="example-margin">{{config.label}}</label>
+    <mat-radio-group [(ngModel)]="data[config.model]">
+        <mat-radio-button  value="after">After</mat-radio-button>
+        <mat-radio-button  value="before">Before</mat-radio-button>
+    </mat-radio-group>
+</ng-template>
+
+<!-- container -->
+<ng-template #container let-configs>
+    <div [fxLayout]="getLayout(configs)" [fxLayoutGap]="getLayoutGap(configs)">
+        <ng-container *ngFor="let conConfig of configs?.items">
+            <ng-container  [ngTemplateOutlet]="getComponentType(conConfig.type)"
+            [ngTemplateOutletContext]="{$implicit: conConfig , data:{}}"></ng-container>
+        </ng-container>
+    </div>
+</ng-template>
