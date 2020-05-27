@@ -3,18 +3,14 @@ import {formConfig} from './config';
 @Component({
   selector: 'jr-createreport',
   templateUrl: './createreport.component.html',
-  styleUrls: ['./createreport.component.css'],
-  host:{
-    class:'jr-block-element jr-full-size'
-  }
+  styleUrls: ['./createreport.component.css']
 })
 export class CreatereportComponent implements OnInit {
 
+  data:any = {};
+  
   constructor() { }
-  formConfig:any;
   ngOnInit(): void {
-    this.formConfig = formConfig
-    debugger;
   }
 
 }
