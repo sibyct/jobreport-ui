@@ -1,23 +1,23 @@
 <div class="jr-full-size jr-layout-column">
     <mat-card>
-        <form  fxLayoutGap="10px">
-            <mat-form-field > 
+        <form  fxLayoutGap="10px" fxLayout="row">
+            <mat-form-field fxFlex> 
               <mat-label>Mobile Number</mat-label>
               <input matInput>
             </mat-form-field>
           
-            <mat-form-field >
+            <mat-form-field fxFlex>
               <mat-label>Name of the Customer</mat-label>
               <input matInput/>
             </mat-form-field>
 
-            <mat-form-field >
+            <mat-form-field fxFlex>
                 <mat-label>Technicians Name</mat-label>
                 <input matInput />
             </mat-form-field>
-            <mat-checkbox >AMC</mat-checkbox>
-            <mat-checkbox >Payment Pending</mat-checkbox>
-            <button mat-mini-fab color="primary" aria-label="search" >
+            <mat-checkbox style="padding: 15px;">AMC</mat-checkbox>
+            <mat-checkbox style="padding: 15px;">Payment Pending</mat-checkbox>
+            <button mat-mini-fab color="primary" style="margin-top:5px;" aria-label="search" >
                 <mat-icon>search</mat-icon>
               </button>
         </form>

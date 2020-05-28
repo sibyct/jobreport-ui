@@ -5,7 +5,6 @@ import { JrRouterModule } from './router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{FormsModule} from '@angular/forms';
-import { HttpClientModule }    from '@angular/common/http';
 
 import{MaterialModule } from '@shared/material';
 
@@ -31,7 +30,6 @@ import {SharedModule} from '@shared/shared.module';
     MaterialModule,
     FormsModule,
     CoreModule,
-    HttpClientModule,
     SharedModule
   ],
   providers: [],

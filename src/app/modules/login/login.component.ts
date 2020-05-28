@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http"
+import {HttpService} from '@shared/services/http/http.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'jr-login',
   templateUrl: './login.component.html',
@@ -7,7 +9,7 @@ import {HttpClient} from "@angular/common/http"
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpService, private router:Router) { }
   user:{username:string,password:string} = {
     username:'',
     password:''
@@ -15,11 +17,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   submitLoginForm(){
-    this.http.post('/api/login',this.user).subscribe((res)=>{
-      debugger;
-    },(err)=>{
-      debugger;
-    })
+
+    this.http.post('/api/login',this.user)
+      .then((response)=>{
+        this.router.navigate(['/main/jobreport']);
+      })
   }
 
 }
