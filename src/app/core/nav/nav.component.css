@@ -1,7 +1,11 @@
 .jr-router-active{
-    background-color: azure;
+    background-color: #E0E0E0;
 }
 
 :host{
     display: flex;
+}
+
+.nav-focus-remove-border:focus{
+    outline: none!important;
 }

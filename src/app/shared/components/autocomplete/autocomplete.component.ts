@@ -1,9 +1,8 @@
 import { Component, OnInit, Input, forwardRef, OnDestroy} from '@angular/core';
-
-import {IDyamicComponentConfig} from '../../types/formtypes';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-
-import {ComponentmanagerService} from '../../services/componentmanager';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 const noop = () => {
 };
@@ -22,12 +21,20 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   styleUrls: ['./autocomplete.component.css'],
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
-export class AutocompleteComponent implements OnInit,OnDestroy,ControlValueAccessor {
-  options = [];
+export class AutocompleteComponent implements OnInit,ControlValueAccessor {
+  
+searchControl = new FormControl();
+filteredOptions: Observable<any[]>;
 
   @Input() label:string = '';
   
   @Input() id:string = `jr-autocomplete-${nextUniqueId++}`;
+  
+  @Input() remote:boolean = false;
+
+  @Input() url:string;
+
+  @Input() options:Array<any> = [];
 
   private innerValue: any = '';
 
@@ -49,34 +56,71 @@ export class AutocompleteComponent implements OnInit,OnDestroy,ControlValueAcces
       }
   }
 
-  constructor(private componentManager: ComponentmanagerService){}
+  constructor(){}
 
   ngOnInit(){
-    this.componentManager.setComponent(this.id,this);
+      this.isUrlProvided();
+      this.setSearchType();
   }
   //Set touched on blur
-  onBlur() {
+   onBlur() {
       this.onTouchedCallback();
   }
 
   //From ControlValueAccessor interface
-  writeValue(value: any) {
+   writeValue(value: any) {
       if (value !== this.innerValue) {
           this.innerValue = value;
       }
   }
 
   //From ControlValueAccessor interface
-  registerOnChange(fn: any) {
+   registerOnChange(fn: any) {
       this.onChangeCallback = fn;
   }
 
   //From ControlValueAccessor interface
-  registerOnTouched(fn: any) {
+   registerOnTouched(fn: any) {
       this.onTouchedCallback = fn;
   }
-  ngOnDestroy(){
-    this.componentManager.removeCompoent(this.id);
+  private isUrlProvided(){
+      if(this.remote){
+          if(!this.url){
+              throw "Please provide the URL";
+              return;
+          }
+      }
+  }
+  setOptions(opt:any[]){
+    this.options = opt;
+  }
+  private setSearchType(){
+      if(this.remote){
+          this.setRemoteSearch();
+      }
+      else{
+        this.setLocalSearch();
+      }
+  }
+  private setLocalSearch(){
+    this.filteredOptions = this.searchControl.valueChanges
+    .pipe(
+      startWith(''),
+      map(searchVal => searchVal ? this._filterOptions(searchVal) : this.options.slice())
+    );
+    debugger;    
+  }
+  private setRemoteSearch(){
+
+  }
+  private _filterOptions(value: string): any[] {
+      debugger;
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(opt => opt.value.toLowerCase().indexOf(filterValue) === 0);
+  }
+  displayValueChange(option:any): string{
+    return option ? option.value : option;
   }
 
 }

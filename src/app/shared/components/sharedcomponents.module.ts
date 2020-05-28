@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import{FormsModule} from '@angular/forms';
+import{FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
 import {FormComponent} from './form';
@@ -32,7 +32,8 @@ import { ReadonlytableComponent } from './readonlytable/readonlytable.component'
     CommonModule,
     FormsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedcomponentsModule { }

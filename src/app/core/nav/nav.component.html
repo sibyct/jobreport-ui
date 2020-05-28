@@ -1,8 +1,10 @@
-<mat-list role="list">
+<mat-list role="list" style="width:100%">
     <mat-list-item *ngFor="let nav of navlist"
          matRipple style="cursor: pointer;"
          [routerLink]="nav.routerLink"
-         routerLinkActive="jr-router-active">
+         routerLinkActive="jr-router-active"
+         class="nav-focus-remove-border"
+         >
         <mat-icon>{{nav.icon}}</mat-icon><span>{{nav.label}}</span>
     </mat-list-item>
   </mat-list>

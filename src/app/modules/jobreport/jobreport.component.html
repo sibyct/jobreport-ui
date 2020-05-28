@@ -1,34 +1,32 @@
 <div class="jr-full-size jr-layout-column">
     <mat-card>
         <form  fxLayoutGap="10px" fxLayout="row">
+          
             <mat-form-field fxFlex> 
               <mat-label>Mobile Number</mat-label>
-              <input matInput>
-            </mat-form-field>
-          
-            <mat-form-field fxFlex>
-              <mat-label>Name of the Customer</mat-label>
-              <input matInput/>
+              <input matInput  [(ngModel)]="searchCriteria.mobileNo" name="mobileNo" autocomplete="off" jrNumberOnly/>
             </mat-form-field>
 
-            <mat-form-field fxFlex>
-                <mat-label>Technicians Name</mat-label>
-                <input matInput />
-            </mat-form-field>
-            <mat-checkbox style="padding: 15px;">AMC</mat-checkbox>
-            <mat-checkbox style="padding: 15px;">Payment Pending</mat-checkbox>
-            <button mat-mini-fab color="primary" style="margin-top:5px;" aria-label="search" >
+            <jr-autocomplete fxFlex  [(ngModel)]="searchCriteria.name" name="customername" label="Customer Name"></jr-autocomplete>
+    
+            <jr-autocomplete fxFlex  [(ngModel)]="searchCriteria.technicianName" name="technicianName" label="Technician Name"></jr-autocomplete>
+
+            <mat-checkbox [(ngModel)]="searchCriteria.amc" name="amc" style="padding: 15px;">AMC</mat-checkbox>
+
+            <mat-checkbox [(ngModel)]="searchCriteria.paymentPending" name="paymentPending" style="padding: 15px;">Payment Pending</mat-checkbox>
+            
+            <button mat-mini-fab color="primary" style="margin-top:5px;" aria-label="search" (click)="searchReports()">
                 <mat-icon>search</mat-icon>
               </button>
         </form>
     </mat-card>
     <div style="margin-top:30px;flex:1;position: relative;">
         <button mat-fab color="accent" aria-label="add a new report"
-        routerLink="/main/createreport"
-         style="position: absolute;right:30px;top:-20px">
+          routerLink="/main/createreport"
+          style="position: absolute;right:30px;top:-20px">
             <mat-icon>add</mat-icon>
-          </button>
+         </button>
         <div class="jr-result-table-header"></div>
           <jr-readonlytable [columns]="columns" [data]="data"></jr-readonlytable>
-    </div>
+        </div>
 </div>
