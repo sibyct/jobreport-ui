@@ -1,32 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Inject } from '@angular/core';
+import {TABLE_CONFIG_TOKEN,tableColumns} from './config';
 @Component({
   selector: 'jr-jobreport',
   templateUrl: './jobreport.component.html',
   styleUrls: ['./jobreport.component.css'],
   host:{
     class:'jr-block-element jr-full-size'
-  }
+  },
+  providers:[{
+    provide: TABLE_CONFIG_TOKEN, useValue: tableColumns
+  }]
 })
 export class JobreportComponent implements OnInit {
-  columns = [{
-    label:'Reference Number',
-    dataIndex:'refNo'
-  },{
-    label:'Date',
-    dataIndex:'date'
-  },{
-    label:'Mobile No',
-    dataIndex:'mobileNumber'
-  },{
-    label:'Customer Approval',
-    dataIndex:'customerApproval'
-  }];
+  columns = [];
   data = [];
 
   searchCriteria:any = {};
 
-  constructor() { }
+  constructor(@Inject(TABLE_CONFIG_TOKEN) public tableColumns: any[]) { }
 
   ngOnInit(): void {
   }
