@@ -3,19 +3,21 @@ import { CommonModule } from '@angular/common';
 import {SharedcomponentsModule} from './components/sharedcomponents.module';
 import {SharedserviceModule} from './services/sharedservice.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { ShareddirectivesModule } from './directives/shareddirectives.module';
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
     SharedcomponentsModule,
     SharedserviceModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ShareddirectivesModule
   ],
   exports:[
     SharedcomponentsModule,
     SharedserviceModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ShareddirectivesModule
   ]
 })
 export class SharedModule { }
