@@ -1,0 +1,7 @@
+.jr-router-active{
+    background-color: azure;
+}
+
+:host{
+    display: flex;
+}

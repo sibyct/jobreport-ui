@@ -3,6 +3,8 @@ import {LoginComponent} from '../modules/login';
 import{ MainComponent} from '../modules/main';
 import {JobreportComponent} from '../modules/jobreport';
 import {CreatereportComponent} from '../modules/createreport';
+import {DashboardComponent} from '../modules/dashboard/dashboard.component';
+import {UsermanagementComponent} from '../modules/usermanagement/usermanagement.component';
 
 export const ROUTES:Routes = [{
     component: LoginComponent,
@@ -16,6 +18,12 @@ export const ROUTES:Routes = [{
     },{
         component: CreatereportComponent,
         path:'createreport'
+    },{
+        component: DashboardComponent,
+        path:'dashboard'
+    },{
+        component: UsermanagementComponent,
+        path:'usermanagement'
     }]
 },{ 
     path: '', 

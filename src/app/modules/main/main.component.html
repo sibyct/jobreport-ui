@@ -1,5 +1,7 @@
 <mat-drawer-container class="jr-block-element jr-full-size">
-    <mat-drawer #drawer mode="side" opened style="width:13%;background-color: rgb(169,169,169);">
+    <mat-drawer #drawer mode="side" opened style="width:13%;">
+        <div style="height: 64px;background-color: #1A2530;"></div>
+        <jr-nav class="jr-strech"></jr-nav>
     </mat-drawer>
     <mat-drawer-content class="jr-layout-column">
         <jr-toolbar (toggleNav)="drawer.toggle()"></jr-toolbar>

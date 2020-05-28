@@ -5,23 +5,16 @@ import { JrRouterModule } from './router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{FormsModule} from '@angular/forms';
-
 import{MaterialModule } from '@shared/material';
-
 import { LoginComponent } from './modules/login/login.component';
-import { MainComponent } from './modules/main/main.component';
 import {CoreModule} from './core/core.module';
-import { JobreportComponent } from './modules/jobreport/jobreport.component';
-import { CreatereportComponent } from './modules/createreport/createreport.component';
-
 import {SharedModule} from '@shared/shared.module';
+import {PagesModule} from './modules/pages.module';
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    MainComponent,
-    JobreportComponent,
-    CreatereportComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +23,8 @@ import {SharedModule} from '@shared/shared.module';
     MaterialModule,
     FormsModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

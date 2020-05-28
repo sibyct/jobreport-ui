@@ -34,6 +34,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatRippleModule} from '@angular/material/core'
 
 @NgModule({
   declarations: [],
@@ -72,7 +73,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSortModule,
     MatPaginatorModule,
     MatTreeModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatRippleModule
   ],
   exports:[
     BrowserAnimationsModule,
@@ -108,7 +110,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSortModule,
     MatPaginatorModule,
     MatTreeModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatRippleModule
   ]
 })
 export class MaterialModule { }
