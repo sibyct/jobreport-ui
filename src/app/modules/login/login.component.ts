@@ -30,9 +30,7 @@ export class LoginComponent implements OnInit {
     }
 
     this.http.post(this.url.login,this.user)
-      .then((response)=>{
-        this.router.navigate(['/main/jobreport']);
-      })
+      .then((response)=>this.router.navigate(['/main/jobreport']))
   }
 
 }
