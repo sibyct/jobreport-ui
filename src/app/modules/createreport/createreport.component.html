@@ -26,7 +26,7 @@
                 <input matInput  [(ngModel)]="data.location" name="location" autocomplete="off" >
             </mat-form-field>
 
-             <jr-autocomplete fxFlex  [(ngModel)]="data.typeOfcomplaint" 
+             <jr-autocomplete fxFlex  [(ngModel)]="data.typeOfService" [options]="typeOfService"
             name="typeOfcomplaint" label="Type of Service" name="typeOfService">
             </jr-autocomplete>
 
@@ -43,7 +43,7 @@
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
-            <jr-autocomplete fxFlex  [(ngModel)]="data.co" name="co" label="C/O"></jr-autocomplete>
+            <jr-autocomplete fxFlex  [(ngModel)]="data.co" name="co" label="C/O" [options]="co"></jr-autocomplete>
             
             <mat-radio-group fxLayout="row" fxLayoutGap="20px" aria-label="Select an option" [(ngModel)]="data.amc" name="amc">
                 <label style="color: #8E8E8E;">Type Of Customer<span>:</span></label>

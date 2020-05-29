@@ -34,9 +34,16 @@ filteredOptions: Observable<any[]>;
 
   @Input() url:string;
 
-  @Input() options:Array<any> = [];
-
+  @Input() 
+  set options(opt){
+    this.setOptions(opt)
+  }
+  get options(){
+    return this.list;
+  }
   private innerValue: any = '';
+
+  list:any[] = [];
 
   //Placeholders for the callbacks which are later provided
   //by the Control Value Accessor
@@ -92,7 +99,8 @@ filteredOptions: Observable<any[]>;
       }
   }
   setOptions(opt:any[]){
-    this.options = opt;
+    this.list = opt;
+    this.setLocalSearch();
   }
   private setSearchType(){
       if(this.remote){
@@ -107,19 +115,20 @@ filteredOptions: Observable<any[]>;
     .pipe(
       startWith(''),
       map(searchVal => searchVal ? this._filterOptions(searchVal) : this.options.slice())
-    );
-    debugger;    
+    );   
   }
   private setRemoteSearch(){
 
   }
   private _filterOptions(value: string): any[] {
-      debugger;
     const filterValue = value.toLowerCase();
 
     return this.options.filter(opt => opt.value.toLowerCase().indexOf(filterValue) === 0);
   }
-  displayValueChange(option:any): string{
+  displayFn(option:any): string{
+    if(!option){
+      return "";
+    }
     return option ? option.value : option;
   }
 
