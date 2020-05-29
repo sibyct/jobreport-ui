@@ -2,7 +2,7 @@
     <mat-card class="jr-login-card jr-layout-column jr-strech">
             <mat-toolbar color="primary">Login</mat-toolbar> 
             <mat-card-content style="flex:1">
-                <form style="padding: 50px;" class="jr-layout-column" (ngSubmit)="submitLoginForm()">
+                <form style="padding: 50px;" class="jr-layout-column" #loginForm="ngForm" (ngSubmit)="submitLoginForm(loginForm)">
                     <mat-form-field>
                       <mat-label>User Name</mat-label>
                       <input matInput required [(ngModel)]="user.username"

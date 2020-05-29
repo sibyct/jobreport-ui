@@ -1,46 +1,59 @@
 <div class="jr-page-header">Create a Report</div>
 <mat-card>
     <mat-card-content fxLayout="column">
-        <mat-form-field style="width: 50%;">
-            <mat-label>Name Of the Client</mat-label>
-            <input matInput  [(ngModel)]="data.name" autocomplete="off">
-        </mat-form-field>
+        <form fxLayout="column" #createReportForm="ngForm" (ngSubmit)="createReport(createReportForm)">
+            <mat-form-field style="width: 50%;">
+                <mat-label>Client Name</mat-label>
+                <input matInput  [(ngModel)]="data.customerName" name="customerName" #customerName="ngModel" autocomplete="off" required>
+                <mat-error *ngIf="customerName.invalid">Client Name is required</mat-error>
+            </mat-form-field>
+            <mat-form-field style="width: 50%;">
+                <mat-label>Mobile No</mat-label>
+                <input matInput  [(ngModel)]="data.mobNo" 
+                name="mobileNo"
+                #mobileNo="ngModel"
+                autocomplete="off" jrNumberOnly required>
+                <mat-error *ngIf="mobileNo.invalid || mobileNo.pristine">Mobile is required</mat-error>
+            </mat-form-field>
+            {{ data.mobNo}}
+           <mat-form-field style="width: 50%;">
+                <mat-label>Adreess</mat-label>
+                <input matInput  [(ngModel)]="data.address" name="address" autocomplete="off">
+            </mat-form-field>
 
-        <mat-form-field style="width: 50%;">
-            <mat-label>Mobile No</mat-label>
-            <input matInput  [(ngModel)]="data.mobNo" autocomplete="off" jrNumberOnly>
-        </mat-form-field>
+           <mat-form-field style="width: 50%;">
+                <mat-label>Location</mat-label>
+                <input matInput  [(ngModel)]="data.location" name="location" autocomplete="off" >
+            </mat-form-field>
 
-        <mat-form-field style="width: 50%;">
-            <mat-label>Adreess</mat-label>
-            <input matInput  [(ngModel)]="data.address" autocomplete="off">
-        </mat-form-field>
+             <jr-autocomplete fxFlex  [(ngModel)]="data.typeOfcomplaint" 
+            name="typeOfcomplaint" label="Type of Service" style="width: 50%;" name="typeOfService">
+            </jr-autocomplete>
 
-        <mat-form-field style="width: 50%;">
-            <mat-label>Location</mat-label>
-            <input matInput  [(ngModel)]="data.location" autocomplete="off" >
-        </mat-form-field>
+            <mat-form-field style="width: 50%;">
+                <mat-label>Type of Service</mat-label>
+                <input matInput  [(ngModel)]="data.othetService" name="othetService" autocomplete="off">
+            </mat-form-field>
 
-        <mat-form-field style="width: 50%;">
-            <mat-label>Type of Complaint</mat-label>
-            <input matInput  [(ngModel)]="data.typeOfcomplaint" autocomplete="off">
-        </mat-form-field>
+            <mat-form-field style="width: 20%;">
+                <mat-label>Enquiry Date</mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="data.enquiryDate"
+                 name="enquiryDate" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
 
-        <mat-form-field style="width: 20%;">
-            <mat-label>Enquiry Date</mat-label>
-            <input matInput [matDatepicker]="picker" [(ngModel)]="data.enquiryDate" autocomplete="off">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+            <jr-autocomplete fxFlex  [(ngModel)]="data.co" 
+            name="co" label="C/O" style="width: 50%;">
+            </jr-autocomplete>
 
-        <mat-form-field style="width: 50%;">
-            <mat-label>C/O</mat-label>
-            <input matInput  [(ngModel)]="data.co" autocomplete="off">
-        </mat-form-field>
-        
+            <mat-checkbox [(ngModel)]="data.amc" name="amc">AMC</mat-checkbox>
+
+            <div fxLayout="row" fxLayoutGap="10px" style="margin: 10px;">
+                <button mat-raised-button aria-label="cancel" routerLink="/main/jobreport"> Cancel</button>
+                <button mat-raised-button color="primary" aria-label="save" type="submit"> Save</button>
+            </div> 
+        </form>
     </mat-card-content>
-    <mat-card-footer fxLayout="row" fxLayoutGap="10px" style="margin: 10px;">
-        <button mat-raised-button aria-label="cancel" routerLink="/main/jobreport"> Cancel</button>
-        <button mat-raised-button color="primary" aria-label="save" > Save</button>
-    </mat-card-footer>
+    
 </mat-card> 

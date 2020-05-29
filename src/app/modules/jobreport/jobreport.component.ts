@@ -12,7 +12,7 @@ import {TABLE_CONFIG_TOKEN,tableColumns} from './config';
   }]
 })
 export class JobreportComponent implements OnInit {
-  columns = [];
+  
   data = [];
 
   searchCriteria:any = {};

@@ -1,28 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit,Inject} from '@angular/core';
+import{NAV_LIST_CONFIG_TOKEN,Navlist} from './config';
 @Component({
   selector: 'jr-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.css']
+  styleUrls: ['./nav.component.css'],
+  providers:[{
+    provide: NAV_LIST_CONFIG_TOKEN, useValue: Navlist
+  }]
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
-  navlist:any = [];
-  ngOnInit(): void {
-    this.navlist = [{
-      label:'Dashboard',
-      icon:'dashboard',
-      routerLink:'/main/dashboard'
-    },{
-      label:'Report',
-      icon:'file_copy',
-      routerLink:'/main/jobreport'
-    },{
-      label:'User Management',
-      icon:'supervisor_account',
-      routerLink:'/main/usermanagement'
-    }]
-  }
+  constructor(@Inject(NAV_LIST_CONFIG_TOKEN) public navlist: any[]) { }
+  ngOnInit(): void {}
 
 }

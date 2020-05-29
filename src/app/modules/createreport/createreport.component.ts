@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import {formConfig} from './config';
+import {NgForm} from '@angular/forms';
 @Component({
   selector: 'jr-createreport',
   templateUrl: './createreport.component.html',
@@ -11,6 +11,13 @@ export class CreatereportComponent implements OnInit {
   
   constructor() { }
   ngOnInit(): void {
+  }
+  createReport(form: NgForm) :void{
+    if(!form.valid){
+      return;
+    }
+
+    debugger;
   }
 
 }
