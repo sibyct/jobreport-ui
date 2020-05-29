@@ -2,15 +2,11 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {HttpService} from '@shared/services/http/http.service';
 import { Router } from '@angular/router';
 import {NgForm} from '@angular/forms';
-
-import {URL_TOKEN,JOB_REPORT_URLS} from '@shared/constants/url.constants';
+import {URL_TOKEN} from '@shared/constants/url.constants';
 @Component({
   selector: 'jr-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  providers:[{
-    provide: URL_TOKEN, useValue: JOB_REPORT_URLS
-  }]
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
