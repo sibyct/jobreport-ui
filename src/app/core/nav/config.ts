@@ -1,15 +1,15 @@
 import { InjectionToken } from '@angular/core';
 
 export const Navlist = [{
-    label:'Dashboard',
+    name:'dashboard',
     icon:'dashboard',
     routerLink:'/main/dashboard'
   },{
-    label:'Report',
+    name:'report',
     icon:'file_copy',
     routerLink:'/main/jobreport'
   },{
-    label:'User Management',
+    name:'usermanagement',
     icon:'supervisor_account',
     routerLink:'/main/usermanagement'
   }];

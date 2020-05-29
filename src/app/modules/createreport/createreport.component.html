@@ -3,12 +3,12 @@
     <mat-card-content fxLayout="column">
         <form fxLayout="column" #createReportForm="ngForm" (ngSubmit)="createReport(createReportForm)" style="width: 50%;">
             <mat-form-field>
-                <mat-label>Client Name</mat-label>
+                <mat-label>{{'clientName'|i18n}}</mat-label>
                 <input matInput  [(ngModel)]="data.customerName" name="customerName" #customerName="ngModel" autocomplete="off" required>
                 <mat-error *ngIf="customerName.invalid">Client Name is required</mat-error>
             </mat-form-field>
             <mat-form-field >
-                <mat-label>Mobile No</mat-label>
+                <mat-label>{{'mobileNo'|i18n}}</mat-label>
                 <input matInput  [(ngModel)]="data.mobNo" 
                 name="mobileNo"
                 #mobileNo="ngModel"
@@ -17,12 +17,12 @@
             </mat-form-field>
             {{ data.mobNo}}
            <mat-form-field >
-                <mat-label>Adreess</mat-label>
+                <mat-label>{{'address'|i18n}}</mat-label>
                 <input matInput  [(ngModel)]="data.address" name="address" autocomplete="off">
             </mat-form-field>
 
            <mat-form-field >
-                <mat-label>Location</mat-label>
+                <mat-label>{{'location'|i18n}}</mat-label>
                 <input matInput  [(ngModel)]="data.location" name="location" autocomplete="off" >
             </mat-form-field>
 
@@ -31,12 +31,12 @@
             </jr-autocomplete>
 
             <mat-form-field  *ngIf="data.typeOfcomplaint==12">
-                <mat-label>Other Service</mat-label>
+                <mat-label>{{'otherService'|i18n}}</mat-label>
                 <input matInput  [(ngModel)]="data.otherService" name="othetService" autocomplete="off">
             </mat-form-field>
 
             <mat-form-field style="width: 30%;">
-                <mat-label>Enquiry Date</mat-label>
+                <mat-label>{{'enquiryDate'|i18n}}</mat-label>
                 <input matInput [matDatepicker]="picker" [(ngModel)]="data.enquiryDate"
                  name="enquiryDate" autocomplete="off">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -47,13 +47,13 @@
             
             <mat-radio-group fxLayout="row" fxLayoutGap="20px" aria-label="Select an option" [(ngModel)]="data.amc" name="amc">
                 <label style="color: #8E8E8E;">Type Of Customer<span>:</span></label>
-                <mat-radio-button style="color: #8E8E8E;" value="1">AMC</mat-radio-button>
-                <mat-radio-button style="color: #8E8E8E;" value="2">VIP</mat-radio-button>
+                <mat-radio-button style="color: #8E8E8E;" value="1">{{'amc'|i18n}}</mat-radio-button>
+                <mat-radio-button style="color: #8E8E8E;" value="2">{{'vip'|i18n}}</mat-radio-button>
             </mat-radio-group>
 
             <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end center" style="margin-top:20px;">
-                <button mat-raised-button aria-label="cancel" routerLink="/main/jobreport"> Cancel</button>
-                <button mat-raised-button color="primary" aria-label="save" type="submit"> Save</button>
+                <button mat-raised-button aria-label="cancel" routerLink="/main/jobreport">{{'cancel'|i18n}} </button>
+                <button mat-raised-button color="primary" aria-label="save" type="submit">{{'save'|i18n}} </button>
             </div> 
         </form>
     </mat-card-content>

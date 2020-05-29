@@ -4,6 +4,7 @@ import {SharedcomponentsModule} from './components/sharedcomponents.module';
 import {SharedserviceModule} from './services/sharedservice.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { ShareddirectivesModule } from './directives/shareddirectives.module';
+import { SharedpipeModule } from './pipe/sharedpipe.module';
 
 @NgModule({
   imports: [
@@ -11,13 +12,15 @@ import { ShareddirectivesModule } from './directives/shareddirectives.module';
     SharedcomponentsModule,
     SharedserviceModule,
     FlexLayoutModule,
-    ShareddirectivesModule
+    ShareddirectivesModule,
+    SharedpipeModule
   ],
   exports:[
     SharedcomponentsModule,
     SharedserviceModule,
     FlexLayoutModule,
-    ShareddirectivesModule
+    ShareddirectivesModule,
+    SharedpipeModule
   ]
 })
 export class SharedModule { }

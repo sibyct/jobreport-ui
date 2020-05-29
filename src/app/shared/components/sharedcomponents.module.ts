@@ -11,6 +11,8 @@ import {AutocompleteComponent} from './autocomplete';
 import { RadioComponent } from './radio';
 import { ReadonlytableComponent } from './readonlytable/readonlytable.component';
 
+import {SharedpipeModule} from '../pipe/sharedpipe.module';
+
 @NgModule({
   declarations: [
     FormComponent,
@@ -33,7 +35,8 @@ import { ReadonlytableComponent } from './readonlytable/readonlytable.component'
     FormsModule,
     MaterialModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedpipeModule
   ]
 })
 export class SharedcomponentsModule { }

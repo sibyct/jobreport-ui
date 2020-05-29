@@ -3,17 +3,17 @@
         <form  fxLayoutGap="10px" fxLayout="row">
           
             <mat-form-field fxFlex> 
-              <mat-label>Mobile Number</mat-label>
+              <mat-label>{{'mobileNo'|i18n}}</mat-label>
               <input matInput  [(ngModel)]="searchCriteria.mobileNo" name="mobileNo" autocomplete="off" jrNumberOnly/>
             </mat-form-field>
 
-            <jr-autocomplete fxFlex  [(ngModel)]="searchCriteria.name" name="customername" label="Customer Name"></jr-autocomplete>
+            <jr-autocomplete fxFlex  [(ngModel)]="searchCriteria.name" name="customername" label="customerName"></jr-autocomplete>
     
-            <jr-autocomplete fxFlex  [(ngModel)]="searchCriteria.technicianName" name="technicianName" label="Technician Name"></jr-autocomplete>
+            <jr-autocomplete fxFlex  [(ngModel)]="searchCriteria.technicianName" name="technicianName" label="technicianName"></jr-autocomplete>
 
-            <mat-checkbox [(ngModel)]="searchCriteria.amc" name="amc" style="padding: 15px;">AMC</mat-checkbox>
+            <mat-checkbox [(ngModel)]="searchCriteria.amc" name="amc" style="padding: 15px;">{{'amc'|i18n}}</mat-checkbox>
 
-            <mat-checkbox [(ngModel)]="searchCriteria.paymentPending" name="paymentPending" style="padding: 15px;">Payment Pending</mat-checkbox>
+            <mat-checkbox [(ngModel)]="searchCriteria.paymentPending" name="paymentPending" style="padding: 15px;">{{'paymentPending'|i18n}}</mat-checkbox>
             
             <button mat-mini-fab color="primary" style="margin-top:5px;" aria-label="search" (click)="searchReports()">
                 <mat-icon>search</mat-icon>

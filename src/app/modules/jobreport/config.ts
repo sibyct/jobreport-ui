@@ -1,16 +1,16 @@
 import { InjectionToken } from '@angular/core';
 
 export const tableColumns = [{
-    label:'Reference Number',
+    name:'referenceNumber',
     dataIndex:'refNo'
   },{
-    label:'Date',
+    name:'date',
     dataIndex:'date'
   },{
-    label:'Mobile No',
+    name:'mobileNo',
     dataIndex:'mobileNumber'
   },{
-    label:'Customer Approval',
+    name:'customerApproval',
     dataIndex:'customerApproval'
 }];
 
