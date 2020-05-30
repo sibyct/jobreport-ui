@@ -15,6 +15,6 @@ export class LoaderService {
   getLoader() :Observable<any>{
 
     return this.subject.asObservable();
-    
+  
   }
 }

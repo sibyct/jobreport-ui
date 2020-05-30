@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {SharedcomponentsModule} from '../components/sharedcomponents.module';
 import {NumberOnlyDirective} from './numberonly/number-only.directive';
+import { LoadingMaskDirective } from './loadingmask/loading-mask.directive';
 
 
 @NgModule({
-  declarations: [NumberOnlyDirective],
+  declarations: [NumberOnlyDirective, LoadingMaskDirective],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedcomponentsModule
   ],
-  exports:[NumberOnlyDirective]
+  exports:[NumberOnlyDirective,LoadingMaskDirective]
 })
 export class ShareddirectivesModule { }

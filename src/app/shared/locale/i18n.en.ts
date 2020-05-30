@@ -21,7 +21,9 @@ export const i18nLabels = {
     usermanagement:'User Management',
     referenceNumber:'Reference Number',
     date:'Date',
-    customerApproval:'Customer Approval'
+    customerApproval:'Customer Approval',
+    settings:'Settings',
+    logout:'Logout'
 }
 
 export const LABEL_TOKEN = new InjectionToken<string>('i18nLabels');

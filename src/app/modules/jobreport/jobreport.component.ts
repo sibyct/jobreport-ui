@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import {TABLE_CONFIG_TOKEN,tableColumns} from './config';
 @Component({
   selector: 'jr-jobreport',
@@ -11,7 +11,7 @@ import {TABLE_CONFIG_TOKEN,tableColumns} from './config';
     provide: TABLE_CONFIG_TOKEN, useValue: tableColumns
   }]
 })
-export class JobreportComponent implements OnInit {
+export class JobreportComponent{
   
   data = [];
 
@@ -19,8 +19,6 @@ export class JobreportComponent implements OnInit {
 
   constructor(@Inject(TABLE_CONFIG_TOKEN) public tableColumns: any[]) { }
 
-  ngOnInit(): void {
-  }
   searchReports() :void{
 
   }

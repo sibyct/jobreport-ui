@@ -1,11 +1,11 @@
 <mat-toolbar color="primary">
     <mat-icon class="toggle-icon" (click)="toggleSideNav()">menu</mat-icon>
-    <div style="margin-left:20px;">Report</div>
+    <div style="margin-left:20px;">{{'report'|i18n}}</div>
     <button mat-button [matMenuTriggerFor]="menu" style="margin-left: auto;">
         <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item>Settings</button>
-        <button mat-menu-item>Log Out</button>
+        <button mat-menu-item>{{'settings'|i18n}}</button>
+        <button mat-menu-item>{{'logout'|i18n}}</button>
     </mat-menu>
 </mat-toolbar>

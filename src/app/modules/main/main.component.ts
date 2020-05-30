@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Observable} from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 import {LoaderService} from '@shared/services/loader/loader.service';
 @Component({
@@ -10,14 +11,17 @@ import {LoaderService} from '@shared/services/loader/loader.service';
     class:'jr-block-element jr-full-size'
   }
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, AfterViewInit {
 
   constructor(private loader:LoaderService) { }
 
   loaderSubcription :Observable<boolean>;
   
   ngOnInit(): void {
-    this.loaderSubcription = this.loader.getLoader();
+    
+  }
+  ngAfterViewInit(){
+    this.loaderSubcription = this.loader.getLoader().pipe(delay(0));
   }
 
 }
