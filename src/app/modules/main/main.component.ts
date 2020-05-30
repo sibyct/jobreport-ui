@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable} from 'rxjs';
 
+import {LoaderService} from '@shared/services/loader/loader.service';
 @Component({
   selector: 'jr-main',
   templateUrl: './main.component.html',
@@ -10,9 +12,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loader:LoaderService) { }
 
+  loaderSubcription :Observable<boolean>;
+  
   ngOnInit(): void {
+    this.loaderSubcription = this.loader.getLoader();
   }
 
 }

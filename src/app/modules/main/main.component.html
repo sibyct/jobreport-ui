@@ -5,7 +5,7 @@
     </mat-drawer>
     <mat-drawer-content class="jr-layout-column">
         <jr-toolbar (toggleNav)="drawer.toggle()"></jr-toolbar>
-        <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+        <mat-progress-bar mode="indeterminate" *ngIf="loaderSubcription|async" color="accent"></mat-progress-bar>
         <div class="jr-fitin-container jr-main-container-scroll jr-container-sizing">
             <router-outlet></router-outlet>
         </div>
