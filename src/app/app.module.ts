@@ -11,6 +11,7 @@ import {CoreModule} from './core/core.module';
 import {SharedModule} from '@shared/shared.module';
 import {PagesModule} from './modules/pages.module';
 import{URL_TOKEN,JOB_REPORT_URLS} from '@shared/constants/url.constants';
+import {CODE_TOKEN,CODES} from '@shared/constants/code.constants';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,10 @@ import{URL_TOKEN,JOB_REPORT_URLS} from '@shared/constants/url.constants';
   ],
   providers: [{
     provide: URL_TOKEN, useValue: JOB_REPORT_URLS
-  }],
+  },{
+    provide: CODE_TOKEN, useValue: CODES
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

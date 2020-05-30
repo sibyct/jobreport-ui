@@ -36,18 +36,18 @@
 
             <mat-form-field style="width: 30%;">
                 <mat-label>{{'enquiryDate'|i18n}}</mat-label>
-                <input matInput [matDatepicker]="picker" [(ngModel)]="data.enquiryDate"
-                 name="enquiryDate" autocomplete="off">
+                <input matInput [matDatepicker]="picker" [(ngModel)]="data.enquiryDate" name="enquiryDate" autocomplete="off">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
             <jr-autocomplete fxFlex  [(ngModel)]="data.co" name="co" label="C/O" [options]="co"></jr-autocomplete>
             
-            <mat-radio-group fxLayout="row" fxLayoutGap="20px" aria-label="Select an option" [(ngModel)]="data.amc" name="amc">
+            <mat-radio-group fxLayout="row" fxLayoutGap="20px" aria-label="Select an option" [(ngModel)]="data.typeOfCustomer" name="amc">
                 <label style="color: #8E8E8E;">Type Of Customer<span>:</span></label>
-                <mat-radio-button style="color: #8E8E8E;" value="1">{{'amc'|i18n}}</mat-radio-button>
-                <mat-radio-button style="color: #8E8E8E;" value="2">{{'vip'|i18n}}</mat-radio-button>
+                <mat-radio-button style="color: #8E8E8E;" [value]="code.AMC">{{'amc'|i18n}}</mat-radio-button>
+                <mat-radio-button style="color: #8E8E8E;" [value]="code.VIP">{{'vip'|i18n}}</mat-radio-button>
+                <mat-radio-button style="color: #8E8E8E;" [value]="code.OTHERS">{{'others'|i18n}}</mat-radio-button>
             </mat-radio-group>
 
             <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end center" style="margin-top:20px;">

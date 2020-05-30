@@ -23,7 +23,8 @@ export const i18nLabels = {
     date:'Date',
     customerApproval:'Customer Approval',
     settings:'Settings',
-    logout:'Logout'
+    logout:'Logout',
+    others:'Others'
 }
 
 export const LABEL_TOKEN = new InjectionToken<string>('i18nLabels');
