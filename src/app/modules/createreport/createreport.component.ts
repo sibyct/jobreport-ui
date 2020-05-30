@@ -29,7 +29,6 @@ export class CreatereportComponent implements OnInit {
     this.http.get(this.url.INITIALIZE_CREATEREPORT).then((res)=>{
       this.typeOfService = res.serviceType;
       this.co = res.co;
-      debugger;
     })
   }
 
