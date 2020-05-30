@@ -12,8 +12,7 @@ import {
 // };
 
 @Directive({
-  selector: '[ngModel][jrNumberOnly]',
-  // providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR],
+  selector: '[ngModel][jrNumberOnly]'
 })
 export class NumberOnlyDirective {
 
@@ -27,20 +26,5 @@ export class NumberOnlyDirective {
       event.stopPropagation();
     }
   }
-  // onChange: Function = () => {};
-
-  // onTouched: Function = () => {};
-
-  // writeValue(val: string) : void {
-  //   //this.ngModel = val;               
-  // }
-
-  // registerOnChange(fn: Function): void {
-  //   this.onChange = fn;
-  // }
-
-  // registerOnTouched(fn: Function): void {
-  //   this.onTouched = fn;
-  // }
 
 }
