@@ -15,7 +15,6 @@
                 autocomplete="off" jrNumberOnly required>
                 <mat-error *ngIf="mobileNo.invalid || mobileNo.pristine">Mobile is required</mat-error>
             </mat-form-field>
-            {{ data.mobNo}}
            <mat-form-field >
                 <mat-label>{{'address'|i18n}}</mat-label>
                 <input matInput  [(ngModel)]="data.address" name="address" autocomplete="off">
