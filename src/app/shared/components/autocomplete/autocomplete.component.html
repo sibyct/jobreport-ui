@@ -9,5 +9,5 @@
 </mat-form-field>
   
 <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-  <mat-option *ngFor="let option of filteredOptions | async" [value]="list">{{option.value}}</mat-option>
+  <mat-option *ngFor="let opt of filteredOptions | async" [value]="opt">{{opt.value}}</mat-option>
 </mat-autocomplete>

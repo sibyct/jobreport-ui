@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {HttpService} from '@shared/services/http/http.service';
+import {URL_TOKEN} from '@shared/constants/url.constants';
 @Component({
   selector: 'jr-createreport',
   templateUrl: './createreport.component.html',
@@ -11,7 +12,10 @@ export class CreatereportComponent implements OnInit {
   data:any = {};
   typeOfService = [];
   co = [];
-  constructor(private http:HttpService) { }
+  constructor(
+    private http:HttpService,
+    @Inject(URL_TOKEN) public url: any
+    ) { }
   ngOnInit(): void {
     this.populateDropdownlist();
   }
@@ -22,7 +26,7 @@ export class CreatereportComponent implements OnInit {
     
   }
   populateDropdownlist():void{
-    this.http.get('/api/report/initialize-page').then((res)=>{
+    this.http.get(this.url.INITIALIZE_CREATEREPORT).then((res)=>{
       this.typeOfService = res.serviceType;
       this.co = res.co;
       debugger;

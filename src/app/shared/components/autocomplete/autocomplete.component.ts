@@ -114,22 +114,20 @@ filteredOptions: Observable<any[]>;
     this.filteredOptions = this.searchControl.valueChanges
     .pipe(
       startWith(''),
-      map(searchVal => searchVal ? this._filterOptions(searchVal) : this.options.slice())
+      map(searchVal => typeof searchVal === 'string' ? searchVal :searchVal?.value),
+      map(name => name ? this._filterOptions(name) : this.options.slice())
     );   
   }
   private setRemoteSearch(){
 
   }
   private _filterOptions(value: string): any[] {
-    const filterValue = value.toLowerCase();
 
+    const filterValue = value.toLowerCase();
     return this.options.filter(opt => opt.value.toLowerCase().indexOf(filterValue) === 0);
   }
-  displayFn(option:any): string{
-    if(!option){
-      return "";
-    }
-    return option ? option.value : option;
+  displayFn(option :{value:string,id:number}): string | any{
+    return option && (option.value || option);
   }
 
 }

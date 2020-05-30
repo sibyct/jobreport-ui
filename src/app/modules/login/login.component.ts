@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.http.post(this.url.login,this.user)
+    this.http.post(this.url.LOGIN,this.user)
       .then((response)=>this.router.navigate(['/main/jobreport']))
   }
 
