@@ -13,7 +13,6 @@ export class CreatereportComponent implements OnInit {
   data:any = {};
   typeOfService = [];
   co = [];
-  load = false;
   constructor(
     private http:HttpService,
     @Inject(URL_TOKEN) public url: any,
@@ -29,13 +28,11 @@ export class CreatereportComponent implements OnInit {
     
   }
   populateDropdownlist():void{
-    //this.loader.start();
-    this.load = true;
+    this.loader.start();
     this.http.get(this.url.INITIALIZE_CREATEREPORT).then((res)=>{
       this.typeOfService = res.serviceType;
       this.co = res.co;
-      //this.loader.clear();
-      this.load = false;
+      this.loader.clear();
     })
   }
 
