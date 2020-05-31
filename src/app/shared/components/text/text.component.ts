@@ -1,6 +1,5 @@
 import { Component ,forwardRef,Input,OnInit,OnDestroy} from '@angular/core';
 
-import {IDyamicComponentConfig} from '../../types/formtypes';
 import {ComponentmanagerService} from '../../services/componentmanager';
 
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';

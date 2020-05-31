@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import{MatCheckbox} from '@angular/material/checkbox';
 import{MatRadioGroup} from '@angular/material/radio';
-import {IDyamicComponentConfig,IDyamicformConfig} from '../../types/formtypes'; 
+// import {IDyamicComponentConfig,IDyamicformConfig} from '../../types/formtypes'; 
   
 @Component({
   selector: 'jr-form',
@@ -21,7 +21,7 @@ import {IDyamicComponentConfig,IDyamicformConfig} from '../../types/formtypes';
 })
 export class FormComponent {
   _formData:any = {};
-  @Input('formConfig') formConfig : IDyamicformConfig;
+  @Input('formConfig') formConfig : any;
 
   @Input ('data')
   set formData(data){
@@ -73,10 +73,10 @@ export class FormComponent {
     }
 
   }
-  getLayout(config:IDyamicComponentConfig | IDyamicformConfig) :string{
+  getLayout(config:any) :string{
     return config.layout || 'column';
   }
-  getLayoutGap(config:IDyamicComponentConfig | IDyamicformConfig) :string{
+  getLayoutGap(config:any) :string{
     return config.layout == 'row'?'15px':'0px';
   }
 

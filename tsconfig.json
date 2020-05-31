@@ -16,7 +16,9 @@
       "dom"
     ],
     "paths": {
-      "@shared/*": ["src/app/shared/*"]
+      "@shared/*": ["src/app/shared/*"],
+      "@core/*": ["src/app/core/*"],
+      "@feature/*": ["src/app/feature/*"]
     }
 
   },

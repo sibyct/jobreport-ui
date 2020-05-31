@@ -7,6 +7,7 @@ import {SharedModule} from '@shared/shared.module';
 import {CoreModule} from '../core/core.module';
 import {JrRouterModule} from '../router/jrrouter.module';
 
+import {LoginComponent} from './login';
 import { MainComponent } from './main/main.component';
 import { JobreportComponent } from './jobreport/jobreport.component';
 import { CreatereportComponent } from './createreport/createreport.component';
@@ -20,7 +21,8 @@ import { UsermanagementComponent } from './usermanagement/usermanagement.compone
     JobreportComponent,
     CreatereportComponent,
     DashboardComponent,
-    UsermanagementComponent
+    UsermanagementComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +37,8 @@ import { UsermanagementComponent } from './usermanagement/usermanagement.compone
     JobreportComponent,
     CreatereportComponent,
     DashboardComponent,
-    UsermanagementComponent
+    UsermanagementComponent,
+    LoginComponent
   ]
 })
-export class PagesModule { }
+export class FeatureModule { }

@@ -1,10 +1,10 @@
 import {  Routes } from '@angular/router';
-import {LoginComponent} from '../modules/login';
-import{ MainComponent} from '../modules/main';
-import {JobreportComponent} from '../modules/jobreport';
-import {CreatereportComponent} from '../modules/createreport';
-import {DashboardComponent} from '../modules/dashboard/dashboard.component';
-import {UsermanagementComponent} from '../modules/usermanagement/usermanagement.component';
+import {LoginComponent} from '../feature/login';
+import{ MainComponent} from '../feature/main';
+import {JobreportComponent} from '../feature/jobreport';
+import {CreatereportComponent} from '../feature/createreport';
+import {DashboardComponent} from '../feature/dashboard/dashboard.component';
+import {UsermanagementComponent} from '../feature/usermanagement/usermanagement.component';
 
 export const ROUTES:Routes = [{
     component: LoginComponent,
