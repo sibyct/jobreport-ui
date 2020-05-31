@@ -1,5 +1,11 @@
 import { InjectionToken } from '@angular/core';
 
+export interface NavListType {
+  name:string,
+  icon:string,
+  routerLink:string
+}
+
 export const Navlist = [{
     name:'dashboard',
     icon:'dashboard',

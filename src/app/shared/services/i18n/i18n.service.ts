@@ -4,7 +4,7 @@ import {i18nLabels} from '../../locale/i18n.en';
 @Injectable()
 export class I18nService {
   
-  labels:any = {};
+  labels:{[key:string]:string} = {};
 
   constructor() {
     this.labels = i18nLabels;

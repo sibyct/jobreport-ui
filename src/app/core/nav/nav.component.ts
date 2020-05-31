@@ -1,5 +1,5 @@
 import { Component, OnInit,Inject} from '@angular/core';
-import{NAV_LIST_CONFIG_TOKEN,Navlist} from './config';
+import{NAV_LIST_CONFIG_TOKEN,Navlist,NavListType} from './config';
 @Component({
   selector: 'jr-nav',
   templateUrl: './nav.component.html',
@@ -10,7 +10,7 @@ import{NAV_LIST_CONFIG_TOKEN,Navlist} from './config';
 })
 export class NavComponent implements OnInit {
 
-  constructor(@Inject(NAV_LIST_CONFIG_TOKEN) public navlist: any[]) { }
+  constructor(@Inject(NAV_LIST_CONFIG_TOKEN) public navlist: NavListType[]) { }
   ngOnInit(): void {}
 
 }

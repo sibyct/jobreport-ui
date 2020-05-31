@@ -4,14 +4,15 @@ import {HttpService} from '@shared/services/http/http.service';
 import {URL_TOKEN} from '@shared/constants/url.constants';
 import {CODE_TOKEN} from '@shared/constants/code.constants';
 import {LoaderService} from '@shared/services/loader/loader.service';
+import {ReportModel} from './types';
 @Component({
   selector: 'jr-createreport',
   templateUrl: './createreport.component.html',
   styleUrls: ['./createreport.component.css']
 })
 export class CreatereportComponent implements OnInit {
-
-  data:any = {};
+  
+  reportModel:ReportModel = {};
   typeOfService = [];
   co = [];
   constructor(
@@ -22,15 +23,15 @@ export class CreatereportComponent implements OnInit {
     ) { }
   ngOnInit(): void {
     this.populateDropdownlist();
-    this.data.enquiryDate = new Date();
+    this.reportModel.enquiryDate = new Date();
   }
   createReport(form: NgForm) :void{
     if(!form.valid){
       return;
     }
-    this.data.mobNo = Number(this.data.mobNo);
+    this.reportModel.mobNo = Number(this.reportModel.mobNo);
     debugger;
-    this.http.post('/api/report/generatereport',this.data).then((res)=>{
+    this.http.post('/api/report/generatereport',this.reportModel).then((res)=>{
       
     })
   }
