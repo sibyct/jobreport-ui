@@ -3,13 +3,20 @@
     <mat-card-content fxLayout="column">
         <form fxLayout="column" #createReportForm="ngForm" (ngSubmit)="createReport(createReportForm)" style="width: 50%;">
             <mat-form-field>
-                <mat-label>{{'clientName'|i18n}}</mat-label>
-                <input matInput  [(ngModel)]="reportModel.customerName" name="customerName" #customerName="ngModel" autocomplete="off" required>
+                <mat-label>{{'clientFirstName'|i18n}}</mat-label>
+                <input matInput  [(ngModel)]="reportModel.cusfirstname" name="customerName" #customerName="ngModel" autocomplete="off" required>
                 <mat-error *ngIf="customerName.invalid">Client Name is required</mat-error>
             </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>{{'clientLastName'|i18n}}</mat-label>
+                <input matInput  [(ngModel)]="reportModel.cuslastname" name="customerName" #customerName="ngModel" autocomplete="off" required>
+                <mat-error *ngIf="customerName.invalid">Client Name is required</mat-error>
+            </mat-form-field>
+
             <mat-form-field >
                 <mat-label>{{'mobileNo'|i18n}}</mat-label>
-                <input matInput  [(ngModel)]="reportModel.mobNo" 
+                <input matInput  [(ngModel)]="reportModel.mobno" 
                 name="mobileNo"
                 #mobileNo="ngModel"
                 autocomplete="off" jrNumberOnly required>
@@ -25,25 +32,30 @@
                 <input matInput  [(ngModel)]="reportModel.location" name="location" autocomplete="off" >
             </mat-form-field>
 
-             <jr-autocomplete fxFlex  [(ngModel)]="reportModel.typeOfService" [options]="typeOfService"
+            <mat-form-field >
+                <mat-label>{{'route'|i18n}}</mat-label>
+                <input matInput  [(ngModel)]="reportModel.route" name="route" autocomplete="off" >
+            </mat-form-field>
+
+             <jr-autocomplete fxFlex  [(ngModel)]="reportModel.typeofservice" [options]="typeOfService"
             name="typeOfcomplaint" label="Type of Service" name="typeOfService">
             </jr-autocomplete>
 
-            <mat-form-field  *ngIf="reportModel.typeOfcomplaint.id==code.OTHER_COMPLAINT">
+            <mat-form-field  *ngIf="reportModel?.typeofservice?.id==code.OTHER_COMPLAINT">
                 <mat-label>{{'otherService'|i18n}}</mat-label>
-                <input matInput  [(ngModel)]="reportModel.otherService" name="othetService" autocomplete="off">
+                <input matInput  [(ngModel)]="reportModel.otheritem" name="othetService" autocomplete="off">
             </mat-form-field>
 
             <mat-form-field style="width: 30%;">
                 <mat-label>{{'enquiryDate'|i18n}}</mat-label>
-                <input matInput [matDatepicker]="picker" [(ngModel)]="reportModel.enquiryDate" name="enquiryDate" autocomplete="off">
+                <input matInput [matDatepicker]="picker" [(ngModel)]="reportModel.requestdate" name="enquiryDate" autocomplete="off">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
-            <jr-autocomplete fxFlex  [(ngModel)]="reportModel.co" name="co" label="C/O" [options]="co"></jr-autocomplete>
+            <jr-autocomplete fxFlex  [(ngModel)]="reportModel.CareOf" name="co" label="C/O" [options]="co"></jr-autocomplete>
             
-            <mat-radio-group fxLayout="row" fxLayoutGap="20px" aria-label="Select an option" [(ngModel)]="reportModel.typeOfCustomer" name="amc">
+            <mat-radio-group fxLayout="row" fxLayoutGap="20px" aria-label="Select an option" [(ngModel)]="reportModel.custype" name="amc">
                 <label style="color: #8E8E8E;">{{'typeOfCustomer'|i18n}}<span>:</span></label>
                 <mat-radio-button style="color: #8E8E8E;" [value]="code.AMC">{{'amc'|i18n}}</mat-radio-button>
                 <mat-radio-button style="color: #8E8E8E;" [value]="code.VIP">{{'vip'|i18n}}</mat-radio-button>

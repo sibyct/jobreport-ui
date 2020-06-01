@@ -23,13 +23,13 @@ export class CreatereportComponent implements OnInit {
     ) { }
   ngOnInit(): void {
     this.populateDropdownlist();
-    this.reportModel.enquiryDate = new Date();
+    this.reportModel.requestdate = new Date();
   }
   createReport(form: NgForm) :void{
     if(!form.valid){
       return;
     }
-    this.reportModel.mobNo = Number(this.reportModel.mobNo);
+    this.reportModel.mobno = Number(this.reportModel.mobno);
     debugger;
     this.http.post('/api/report/generatereport',this.reportModel).then((res)=>{
       

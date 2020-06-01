@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, forwardRef, OnDestroy} from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import {FormControl} from '@angular/forms';
+import {HttpClient} from '@angular/common/http'
 import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import {map, startWith, debounceTime, switchMap} from 'rxjs/operators';
 
 const noop = () => {
 };
@@ -32,7 +33,7 @@ filteredOptions: Observable<any[]>;
   
   @Input() remote:boolean = false;
 
-  @Input() url:string;
+  @Input() reqCodeId:number;
 
   @Input() 
   set options(opt){
@@ -45,6 +46,7 @@ filteredOptions: Observable<any[]>;
 
   list:any[] = [];
 
+  loading:boolean = false;
   //Placeholders for the callbacks which are later provided
   //by the Control Value Accessor
   private onTouchedCallback: () => void = noop;
@@ -63,7 +65,7 @@ filteredOptions: Observable<any[]>;
       }
   }
 
-  constructor(){}
+  constructor(private http: HttpClient){}
 
   ngOnInit(){
       this.isUrlProvided();
@@ -92,14 +94,14 @@ filteredOptions: Observable<any[]>;
   }
   private isUrlProvided(){
       if(this.remote){
-          if(!this.url){
-              throw "Please provide the URL";
+          if(!this.reqCodeId){
+              throw "Please provide the Code ID";
               return;
           }
       }
   }
-  setOptions(opt:any[]){
-    this.list = opt;
+  setOptions(opts:any[]){
+    this.list = opts;
     this.setLocalSearch();
   }
   private setSearchType(){
@@ -111,15 +113,32 @@ filteredOptions: Observable<any[]>;
       }
   }
   private setLocalSearch(){
-    this.filteredOptions = this.searchControl.valueChanges
+    this.searchControl.valueChanges
     .pipe(
       startWith(''),
       map(searchVal => typeof searchVal === 'string' ? searchVal :searchVal?.value),
       map(name => name ? this._filterOptions(name) : this.options.slice())
-    );   
+    ).subscribe((result)=>{
+      this.list = result;
+    });   
   }
   private setRemoteSearch(){
-
+    this.searchControl.valueChanges
+    .pipe(
+      debounceTime(500),
+      startWith(''),
+      map(searchVal => typeof searchVal === 'string' ? searchVal :searchVal?.value),
+      switchMap(str => {
+        return this._getList(str);
+      })
+    ).subscribe((response:any[])=>{
+      this.loading = false;
+      this.list = response
+    }); 
+  }
+  private _getList(str:string):Observable<any>{
+    this.loading = true;
+    return this.http.get(`/api/report/getjrdropdownlist/${this.reqCodeId}?searchKey=${str}`)
   }
   private _filterOptions(value: string): any[] {
 

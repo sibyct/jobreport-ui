@@ -1,3 +1,4 @@
+<div style="position: relative;">
 <mat-form-field style="width: 100%;">
   <mat-label>{{label|i18n}}</mat-label>
   
@@ -9,5 +10,7 @@
 </mat-form-field>
   
 <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-  <mat-option *ngFor="let opt of filteredOptions | async" [value]="opt">{{opt.value}}</mat-option>
+  <mat-option *ngFor="let opt of list" [value]="opt">{{opt.value}}</mat-option>
 </mat-autocomplete>
+<mat-progress-bar mode="query" style="position: absolute;bottom: 15px;" *ngIf="loading"></mat-progress-bar>
+</div>

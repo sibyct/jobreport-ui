@@ -3,14 +3,16 @@ export interface DropdownModel{
     value:string
 }
 export interface ReportModel{
-    customerName?:string,
-    mobNo?:number,
+    cusfirstname?:string,
+    cuslastname?:string,
+    route?:string,
+    mobno?:number,
     address?:string,
     location?:string,
-    typeOfService?:DropdownModel,
-    otherService?:string,
+    typeofservice?:DropdownModel,
+    otheritem?:string,
     typeOfcomplaint?:DropdownModel,
-    enquiryDate?:Date,
-    co?:DropdownModel,
-    typeOfCustomer?:number
+    requestdate?:Date,
+    CareOf?:DropdownModel,
+    custype?:number
 }
