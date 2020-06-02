@@ -1,5 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject ,OnInit} from '@angular/core';
 import {TABLE_CONFIG_TOKEN,tableColumns} from './config';
+import {URL_TOKEN} from '@shared/constants/url.constants';
 @Component({
   selector: 'jr-jobreport',
   templateUrl: './jobreport.component.html',
@@ -11,14 +12,17 @@ import {TABLE_CONFIG_TOKEN,tableColumns} from './config';
     provide: TABLE_CONFIG_TOKEN, useValue: tableColumns
   }]
 })
-export class JobreportComponent{
+export class JobreportComponent implements OnInit{
   
   data = [];
 
   searchCriteria:any = {};
 
-  constructor(@Inject(TABLE_CONFIG_TOKEN) public tableColumns: any[]) { }
-
+  constructor(
+    @Inject(TABLE_CONFIG_TOKEN) public tableColumns: any[],
+    @Inject(URL_TOKEN) public url
+    ) { }
+  ngOnInit(){}
   searchReports() :void{
 
   }

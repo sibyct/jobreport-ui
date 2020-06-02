@@ -13,9 +13,10 @@ import { JobreportComponent } from './jobreport/jobreport.component';
 import { CreatereportComponent } from './createreport/createreport.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsermanagementComponent } from './usermanagement/usermanagement.component';
-
+import {CreatereportresolverService} from './createreport/createreportresolver.service';
 
 @NgModule({
+  providers:[CreatereportresolverService],
   declarations: [
     MainComponent,
     JobreportComponent,

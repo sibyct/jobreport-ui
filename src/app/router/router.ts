@@ -1,10 +1,12 @@
 import {  Routes } from '@angular/router';
-import {LoginComponent} from '../feature/login';
-import{ MainComponent} from '../feature/main';
-import {JobreportComponent} from '../feature/jobreport';
-import {CreatereportComponent} from '../feature/createreport';
-import {DashboardComponent} from '../feature/dashboard/dashboard.component';
-import {UsermanagementComponent} from '../feature/usermanagement/usermanagement.component';
+import {LoginComponent} from '@feature/login';
+import{ MainComponent} from '@feature//main';
+import {JobreportComponent} from '@feature/jobreport';
+import {CreatereportComponent} from '@feature/createreport';
+import {DashboardComponent} from '@feature/dashboard/dashboard.component';
+import {UsermanagementComponent} from '@feature/usermanagement/usermanagement.component';
+
+import {CreatereportresolverService} from '@feature/createreport';
 
 export const ROUTES:Routes = [{
     component: LoginComponent,
@@ -17,7 +19,8 @@ export const ROUTES:Routes = [{
         path:'jobreport'
     },{
         component: CreatereportComponent,
-        path:'createreport'
+        path:'createreport',
+        resolve:{'reportList':CreatereportresolverService}
     },{
         component: DashboardComponent,
         path:'dashboard'

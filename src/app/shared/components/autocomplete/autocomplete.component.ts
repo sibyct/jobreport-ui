@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef, OnDestroy} from '@angular/core';
+import { Component, OnInit, Input, forwardRef, OnDestroy, Inject} from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import {FormControl} from '@angular/forms';
 import {HttpClient} from '@angular/common/http'
@@ -35,6 +35,8 @@ filteredOptions: Observable<any[]>;
 
   @Input() reqCodeId:number;
 
+  @Input() url: string;
+
   @Input() 
   set options(opt){
     this.setOptions(opt)
@@ -47,6 +49,8 @@ filteredOptions: Observable<any[]>;
   list:any[] = [];
 
   loading:boolean = false;
+
+  private actualurl:string;
   //Placeholders for the callbacks which are later provided
   //by the Control Value Accessor
   private onTouchedCallback: () => void = noop;
@@ -69,6 +73,7 @@ filteredOptions: Observable<any[]>;
 
   ngOnInit(){
       this.isUrlProvided();
+      this.setUrl();
       this.setSearchType();
   }
   //Set touched on blur
@@ -93,24 +98,34 @@ filteredOptions: Observable<any[]>;
       this.onTouchedCallback = fn;
   }
   private isUrlProvided(){
-      if(this.remote){
-          if(!this.reqCodeId){
-              throw "Please provide the Code ID";
-              return;
-          }
+      if(!this.url){
+        if(this.remote){
+            if(!this.reqCodeId){
+                throw "Please provide the Code ID";
+            }
+        }
       }
   }
   setOptions(opts:any[]){
     this.list = opts;
     this.setLocalSearch();
   }
+  private setUrl():void{
+    if(this.url){
+      this.actualurl = this.url;
+      return
+    }
+    if(this.remote){
+      this.actualurl = `/api/report/getjrdropdownlist/${this.reqCodeId}`;
+    }  
+  }
   private setSearchType(){
-      if(this.remote){
+      if(this.remote || this.url){
           this.setRemoteSearch();
       }
       else{
         this.setLocalSearch();
-      }
+      } 
   }
   private setLocalSearch(){
     this.searchControl.valueChanges
@@ -138,7 +153,7 @@ filteredOptions: Observable<any[]>;
   }
   private _getList(str:string):Observable<any>{
     this.loading = true;
-    return this.http.get(`/api/report/getjrdropdownlist/${this.reqCodeId}?searchKey=${str}`)
+    return this.http.get(`${this.actualurl}?searchKey=${str}`);
   }
   private _filterOptions(value: string): any[] {
 
