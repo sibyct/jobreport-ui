@@ -1,10 +1,30 @@
-<table mat-table [dataSource]="data" class="mat-elevation-z8 jr-full-size">
+<div class="mat-elevation-z8 jr-full-size">
+    <table mat-table [dataSource]="dataSource" style="width: 100%;">
 
-    <ng-container *ngFor="let column of columns" [matColumnDef]="column.dataIndex">
-        <th mat-header-cell *matHeaderCellDef>{{column.name|i18n}}</th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-    </ng-container>
-    
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+        <ng-container *ngFor="let column of columns" [matColumnDef]="column.dataIndex">
+            <th mat-header-cell *matHeaderCellDef>{{column.name|i18n}}</th>
+            <td mat-cell *matCellDef="let element"> 
+                <div [ngSwitch]="column.type">
+                    <div *ngSwitchCase="'url'"><a href="" style="color: blue;">{{element[column.dataIndex]}}</a></div>
+                    <div *ngSwitchCase="'date'">{{element[column.dataIndex]|date}}</div>
+                    <div  *ngSwitchCase="'boolean'">
+                        <span *ngIf="element[column.dataIndex]">
+                            <mat-icon>done</mat-icon>
+                        </span>
+                        <span *ngIf="!element[column.dataIndex]">
+                            <mat-icon>clear</mat-icon>
+                        </span>
+                    </div>
+                    <div  *ngSwitchCase="'list'">
+                        {{element[column.dataIndex]?.value}}
+                    </div>
+                    <div  *ngSwitchDefault>{{element[column.dataIndex]}}</div>
+                </div>
+            </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

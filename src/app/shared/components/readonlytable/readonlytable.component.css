@@ -1,0 +1,5 @@
+:host .mat-row{
+    min-height: 39px!important;
+    max-height: 39px !important;
+    height: 39px;
+}

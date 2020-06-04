@@ -28,7 +28,8 @@ export const i18nLabels = {
     clientFirstName:'Client Firstname',
     clientLastName:'Client LastName',
     route:'Route',
-    typeOfCustomer:'Type Of Customer'
+    typeOfCustomer:'Type Of Customer',
+    typeofservice:'Type Of Service'
 }
 
 export const LABEL_TOKEN = new InjectionToken<string>('i18nLabels');

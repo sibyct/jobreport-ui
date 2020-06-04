@@ -63,7 +63,8 @@ filteredOptions: Observable<any[]>;
 
   //set accessor including call the onchange callback
   set value(v: any) {
-      if (v !== this.innerValue) {
+    debugger
+      if (typeof(v)!="undefined" && v !== this.innerValue) {
           this.innerValue = v;
           this.onChangeCallback(v);
       }

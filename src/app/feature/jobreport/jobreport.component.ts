@@ -1,6 +1,8 @@
 import { Component, Inject ,OnInit} from '@angular/core';
 import {TABLE_CONFIG_TOKEN,tableColumns} from './config';
 import {URL_TOKEN} from '@shared/constants/url.constants';
+
+import {HttpService} from '@shared/services/http/http.service';
 @Component({
   selector: 'jr-jobreport',
   templateUrl: './jobreport.component.html',
@@ -20,9 +22,14 @@ export class JobreportComponent implements OnInit{
 
   constructor(
     @Inject(TABLE_CONFIG_TOKEN) public tableColumns: any[],
-    @Inject(URL_TOKEN) public url
+    @Inject(URL_TOKEN) public url,
+    private http:HttpService
     ) { }
-  ngOnInit(){}
+  ngOnInit(){
+    this.http.get('/api/report/getreports').then((res)=>{
+        this.data = res;
+    })
+  }
   searchReports() :void{
 
   }
