@@ -17,7 +17,7 @@
             
             <button mat-mini-fab color="primary" style="margin-top:5px;" aria-label="search" (click)="searchReports()">
                 <mat-icon>search</mat-icon>
-              </button>
+            </button>
         </form>
     </mat-card>
     <div style="margin-top:30px;flex:1;position: relative;">
@@ -27,6 +27,6 @@
             <mat-icon>add</mat-icon>
          </button>
         <div class="jr-result-table-header"></div>
-          <jr-readonlytable [columns]="tableColumns" [data]="data"></jr-readonlytable>
+          <jr-readonlytable [columns]="tableColumns" [data]="data" (event)="handleTableEvents($event)"></jr-readonlytable>
     </div>
 </div>

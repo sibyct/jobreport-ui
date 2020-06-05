@@ -34,7 +34,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatRippleModule} from '@angular/material/core'
+import {MatRippleModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [],

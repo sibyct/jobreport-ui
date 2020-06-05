@@ -144,7 +144,7 @@ filteredOptions: Observable<any[]>;
       switchMap(str => {
         const type = typeof(str);
         if( type =='undefined' || type =='object' ){
-          return
+          return Promise.resolve(null);
         }
         return this._getList(str);
       })

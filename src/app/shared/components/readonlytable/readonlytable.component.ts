@@ -1,8 +1,11 @@
-import { Component, OnInit, Input, ViewChild} from '@angular/core';
+import { Component, OnInit, Input, ViewChild, EventEmitter, Output} from '@angular/core';
 
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-
+export  interface TableEvent{
+  type:string;
+  data:any
+} 
 @Component({
   selector: 'jr-readonlytable',
   templateUrl: './readonlytable.component.html',
@@ -22,6 +25,8 @@ export class ReadonlytableComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  @Output() event: EventEmitter<TableEvent> = new EventEmitter();
+
   displayedColumns:string[] = [];
   constructor() { 
     
@@ -33,6 +38,15 @@ export class ReadonlytableComponent implements OnInit {
   }
   buildColumns(){
     this.columns.forEach((c)=>(this.displayedColumns.push(c.dataIndex)));
+  }
+  triggerEvent(eventType:string,data:any){
+    
+    const event = {
+      type:eventType,
+      data:data
+    } as TableEvent
+
+    this.event.emit(event);
   }
 
 }

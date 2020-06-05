@@ -7,6 +7,8 @@ import {DashboardComponent} from '@feature/dashboard/dashboard.component';
 import {UsermanagementComponent} from '@feature/usermanagement/usermanagement.component';
 
 import {CreatereportresolverService} from '@feature/createreport';
+import {ReportdetailsComponent} from '@feature/reportdetails/reportdetails.component';
+import {PaymentComponent} from '@feature/payment/payment.component';
 
 export const ROUTES:Routes = [{
     component: LoginComponent,
@@ -16,7 +18,7 @@ export const ROUTES:Routes = [{
     path:'',
     children:[{
         component: JobreportComponent,
-        path:'jobreport'
+        path:'jobreport',
     },{
         component: CreatereportComponent,
         path:'createreport',
@@ -27,6 +29,19 @@ export const ROUTES:Routes = [{
     },{
         component: UsermanagementComponent,
         path:'usermanagement'
+    },{
+        component: ReportdetailsComponent,
+        path:':id',
+        children:[{
+            path:'payment',
+            component:PaymentComponent
+        },{
+            path:'customer',
+            component:PaymentComponent
+        },{
+            path:'job',
+            component:PaymentComponent
+        }]
     }]
 },{ 
     path: '', 

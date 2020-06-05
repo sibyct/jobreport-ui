@@ -14,6 +14,8 @@ import { CreatereportComponent } from './createreport/createreport.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsermanagementComponent } from './usermanagement/usermanagement.component';
 import {CreatereportresolverService} from './createreport/createreportresolver.service';
+import { ReportdetailsComponent } from './reportdetails/reportdetails.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   providers:[CreatereportresolverService],
@@ -23,7 +25,9 @@ import {CreatereportresolverService} from './createreport/createreportresolver.s
     CreatereportComponent,
     DashboardComponent,
     UsermanagementComponent,
-    LoginComponent
+    LoginComponent,
+    ReportdetailsComponent,
+    PaymentComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +43,9 @@ import {CreatereportresolverService} from './createreport/createreportresolver.s
     CreatereportComponent,
     DashboardComponent,
     UsermanagementComponent,
-    LoginComponent
+    LoginComponent,
+    ReportdetailsComponent,
+    PaymentComponent
   ]
 })
 export class FeatureModule { }
