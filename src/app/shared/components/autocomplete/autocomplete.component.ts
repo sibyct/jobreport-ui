@@ -63,7 +63,6 @@ filteredOptions: Observable<any[]>;
 
   //set accessor including call the onchange callback
   set value(v: any) {
-    debugger
       if (typeof(v)!="undefined" && v !== this.innerValue) {
           this.innerValue = v;
           this.onChangeCallback(v);
@@ -142,9 +141,11 @@ filteredOptions: Observable<any[]>;
     this.searchControl.valueChanges
     .pipe(
       debounceTime(500),
-      startWith(''),
-      map(searchVal => typeof searchVal === 'string' ? searchVal :searchVal?.value),
       switchMap(str => {
+        const type = typeof(str);
+        if( type =='undefined' || type =='object' ){
+          return
+        }
         return this._getList(str);
       })
     ).subscribe((response:any[])=>{

@@ -13,7 +13,7 @@ export const ROUTES:Routes = [{
     path:'login'
 },{
     component: MainComponent,
-    path:'main',
+    path:'',
     children:[{
         component: JobreportComponent,
         path:'jobreport'

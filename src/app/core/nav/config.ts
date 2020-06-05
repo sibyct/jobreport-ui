@@ -9,15 +9,15 @@ export interface NavListType {
 export const Navlist = [{
     name:'dashboard',
     icon:'dashboard',
-    routerLink:'/main/dashboard'
+    routerLink:'/dashboard'
   },{
     name:'report',
     icon:'file_copy',
-    routerLink:'/main/jobreport'
+    routerLink:'/jobreport'
   },{
     name:'usermanagement',
     icon:'supervisor_account',
-    routerLink:'/main/usermanagement'
+    routerLink:'/usermanagement'
   }];
 
 export const NAV_LIST_CONFIG_TOKEN = new InjectionToken<string>('NavList');
