@@ -4,24 +4,31 @@
         <form fxLayout="column" #createReportForm="ngForm" (ngSubmit)="createReport(createReportForm)" style="width: 50%;">
             <mat-form-field>
                 <mat-label>{{'clientFirstName'|i18n}}</mat-label>
-                <input matInput  [(ngModel)]="reportModel.cusfirstname" name="customerName" #customerName="ngModel" autocomplete="off" required>
-                <mat-error *ngIf="customerName.invalid">Client Name is required</mat-error>
+                <input matInput  [(ngModel)]="reportModel.cusfirstname" name="customerFname" #customerFname="ngModel" autocomplete="off" required>
+                <mat-error *ngIf="customerFname.invalid|| customerFname.pristine">Client First Name is required</mat-error>
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>{{'clientLastName'|i18n}}</mat-label>
-                <input matInput  [(ngModel)]="reportModel.cuslastname" name="customerName" #customerName="ngModel" autocomplete="off" required>
-                <mat-error *ngIf="customerName.invalid">Client Name is required</mat-error>
+                <input matInput  [(ngModel)]="reportModel.cuslastname" name="customerLname" #customerLname="ngModel" autocomplete="off" required>
+                <mat-error *ngIf="customerLname.invalid|| customerLname.pristine">Client Name is required</mat-error>
             </mat-form-field>
 
-            <mat-form-field >
+            <!-- <mat-form-field >
                 <mat-label>{{'mobileNo'|i18n}}</mat-label>
                 <input matInput  [(ngModel)]="reportModel.mobno" 
                 name="mobileNo"
                 #mobileNo="ngModel"
                 autocomplete="off" jrNumberOnly required>
                 <mat-error *ngIf="mobileNo.invalid || mobileNo.pristine">Mobile is required</mat-error>
+            </mat-form-field> -->
+
+            <mat-form-field >
+                <mat-label>{{'mobileNo'|i18n}}</mat-label>
+                <jr-number [(ngModel)]="reportModel.mobno" name="mobileNo" #mobileNo="ngModel" required></jr-number>
+                <mat-error *ngIf="mobileNo.invalid || mobileNo.pristine">Mobile is required</mat-error>
             </mat-form-field>
+            <div>{{mobileNo.invalid || mobileNo.pristine}}</div>
            <mat-form-field >
                 <mat-label>{{'address'|i18n}}</mat-label>
                 <input matInput  [(ngModel)]="reportModel.address" name="address" autocomplete="off">
@@ -38,7 +45,7 @@
             </mat-form-field>
 
              <jr-autocomplete fxFlex  [(ngModel)]="reportModel.typeofservice" [options]="typeOfService"
-            name="typeOfcomplaint" label="Type of Service" name="typeOfService">
+                 name="typeOfcomplaint" label="typeofservice" name="typeOfService">
             </jr-autocomplete>
 
             <mat-form-field  *ngIf="reportModel?.typeofservice?.id==code.OTHER_COMPLAINT">

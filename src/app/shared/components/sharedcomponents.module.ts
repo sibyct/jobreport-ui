@@ -13,6 +13,7 @@ import { ReadonlytableComponent } from './readonlytable/readonlytable.component'
 
 import {SharedpipeModule} from '../pipe/sharedpipe.module';
 import { MaskComponent } from './mask/mask.component';
+import { NumberComponent } from './number/number.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MaskComponent } from './mask/mask.component';
     DatepickerComponent,
     RadioComponent,
     ReadonlytableComponent,
-    MaskComponent
+    MaskComponent,
+    NumberComponent
   ],
   exports:[
     FormComponent,
@@ -31,7 +33,8 @@ import { MaskComponent } from './mask/mask.component';
     DatepickerComponent,
     RadioComponent,
     ReadonlytableComponent,
-    MaskComponent
+    MaskComponent,
+    NumberComponent
   ],
   imports: [
     CommonModule,

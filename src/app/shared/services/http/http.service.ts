@@ -13,54 +13,49 @@ export class HttpService {
   
   get(url:string) :Promise<any>{
     this.loader.start();
-    return new Promise((resolve,reject)=>{
-      this.http
+    return this.http
           .get<any>(url,this.getHttpHeader())
           .toPromise()
           .then((res)=>{
             if(res){
               this.loader.clear();
-              return resolve(res)
+              return Promise.resolve(res)
             }
           },(err)=>{
             this.loader.clear();
-            return reject(err)
+            return Promise.reject(err)
           });
-      })    
   }
   post(url:string, data:any) :Promise<any>{
     this.loader.start();
-    return new Promise((resolve,reject)=>{
-      this.http
+      return this.http
         .post<any>(url,data,this.getHttpHeader())
         .toPromise()
         .then((res)=>{
           if(res){
             this.loader.clear();
-            return resolve(res)
+            Promise.resolve(res)
           }
         },(err)=>{
           this.loader.clear();
-          return reject(err)
+          Promise.reject(err)
         });
-    })
   }
   put(url:string, data:any) :Promise<any>{
     this.loader.start();
-    return new Promise((resolve,reject)=>{
+    
     return this.http
       .put<any>(url,data,this.getHttpHeader())
-      .toPromise().
-      then((res)=>{
+      .toPromise()
+      .then((res)=>{
         if(res){
           this.loader.clear();
-          return resolve(res)
+          return Promise.resolve(res)
         }
       },(err)=>{
         this.loader.clear();
-        return reject(err)
+        return Promise.reject(err)
       });
-    })
   }
   private getHttpHeader() :httpHeader{
     const httpOptions = {
